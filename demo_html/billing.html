@@ -1,0 +1,139 @@
+<main>
+    <div id="checkoutSection" class="checkoutSection w-full min-h-[90rem] flex flex-col items-center justify-center gap-6 relative mt-[7rem] mb-[4rem]">
+
+        <div class="address_section w-[60rem] box-border p-[3rem] relative font-['Montserrat'] font-semibold">
+
+            <div class="heading w-full h-[7rem] flex flex-col gap-4">
+                <h1 class="font-[Cormorant-Garamond] font-semibold italic text-5xl">Billing Details</h1>
+
+                <div class="sectionDiv w-[54rem] border-[1px] border-solid absolute z-10  border-gray-400 top-[8rem]"></div>
+
+            </div>
+
+            
+        
+            <div class="row">
+                <div class="col">
+                    <label for="first-name">First name</label>
+                    <input type="text" id="first-name" required class="form-control" aria-label="First name">
+                </div>
+                <div class="col">
+                    <label for="last-name">Last name</label>
+                    <input type="text" required id="last-name" class="form-control" aria-label="Last name">
+                </div>
+            </div>
+        
+            <div class="row">
+                <div class="col">
+                    <label for="company-name">Company name (optional)</label>
+                    <input type="text" id="company-name" class="form-control" aria-label="Company name">
+                </div>
+            </div>
+        
+            <div class="row">
+                <div class="col">
+                    <label for="region">Region *</label>
+                    <input type="text" required id="region" class="form-control" aria-label="Region">
+                </div>
+                <div class="col">
+                    <label for="street-address">Street address *</label>
+                    <input type="text" required id="street-address" class="form-control" aria-label="Street address">
+                </div>
+            </div>
+        
+            <div class="row">
+                <div class="col">
+                    <label for="state">State *</label>
+                    <input type="text" required id="state" class="form-control" aria-label="State">
+                </div>
+                <div class="col">
+                    <label for="zip-code">ZIP Code *</label>
+                    <input type="text" required id="zip-code" class="form-control" aria-label="ZIP Code">
+                </div>
+            </div>
+        
+            <div class="row">
+                <div class="col">
+                    <label for="phone">Phone *</label>
+                    <input type="text" required id="phone" class="form-control" aria-label="Phone">
+                </div>
+                <div class="col">
+                    <label for="email">Email address *</label>
+                    <input type="text" required id="email" class="form-control" aria-label="Email address">
+                </div>
+            </div>
+
+
+            <div class="heading w-full h-[7rem] flex flex-col gap-4 mt-[4rem]">
+                <h1 class="font-[Cormorant-Garamond] font-semibold italic text-5xl">Additional Information
+                </h1>
+
+                <div class="sectionDiv w-[54rem] border-[1px] border-solid absolute z-10  border-gray-400 bottom-[15rem]"></div>
+
+            </div>
+            <div class="mb-3 mt-[1rem]">
+                <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Notes about your order, e.g special notes for delivery"></textarea>
+              </div>
+        </div>
+
+        <!-- product price section -->
+
+        <div class="price_section w-[54rem] min-h-[20rem] flex flex-col items-center justify-center p-[3rem] border-[1px] border-solid border-gray-300 box-border font-['Montserrat']">
+
+            <div class="heading flex items-center justify-start flex-row w-full h-[9rem]">
+                <h1 class=" font-[Cormorant-Garamond] font-semibold italic">Your Order</h1>
+            </div>
+
+            <div class="product_info_heading font-semibold text-gray-400 flex flex-row w-full items-center justify-between relative mt-[1rem]">
+
+                <p>Product</p>
+                <p>	Subtotal</p>
+
+                <div class="sectionDiv w-full border-[1px] border-solid absolute z-10  border-gray-400 top-[3rem]"></div>
+            </div>
+
+            <div class="product_info font-semibold text-gray-400 flex flex-row w-full items-center justify-between relative mt-[2rem]">
+
+                <p>Off Shoulder Sweater : GREEN (XS) (Q: 2)</p>
+                <p>	$374.00</p>
+
+                <div class="sectionDiv w-full border-[1px] border-solid absolute z-10  border-gray-400 top-[3rem]"></div>
+            </div>
+            <div class="product_info font-semibold text-gray-400 flex flex-row w-full items-center justify-between relative mt-[2rem]">
+
+                <p>Off Shoulder Sweater : RED (S) (Q: 1)</p>
+                <p>	$$187.00</p>
+
+                <div class="sectionDiv w-full border-[1px] border-solid absolute z-10  border-gray-400 top-[3rem]"></div>
+            </div>
+            
+            <div class="product_info_subtotal font-semibold text-gray-400 flex flex-row w-full items-center justify-between relative mt-[2rem]">
+
+                <p>Subtotal</p>
+                <p>	$374.00</p>
+
+                <div class="sectionDiv w-full border-[1px] border-solid absolute z-10  border-gray-400 top-[3rem]"></div>
+            </div>
+
+            <div class="product_info font-semibold text-gray-400 flex flex-row w-full items-center justify-between relative mt-[2rem]">
+
+                <p>Total</p>
+                <p>	$374.00</p>
+
+                <div class="sectionDiv w-full border-[1px] border-solid absolute z-10  border-gray-400 top-[3rem]"></div>
+            </div>
+
+
+
+            <button id="checkOutBtn"
+                class=" border-[1px] border-solid border-black mt-[3rem] mb-[3rem] px-[16rem] py-[1.3rem] hover:bg-black hover:border-none hover:text-white hover:duration-300 hover: ease-out font-['Montserrat'] font-semibold leading-relaxed">Place Order</button>
+        </div>
+
+
+       
+
+    </div>
+
+    
+</main>

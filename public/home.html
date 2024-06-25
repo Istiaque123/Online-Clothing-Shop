@@ -1,0 +1,689 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Shop</title>
+
+    <link href="/src/output.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/src/utilities.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+
+<body class="m-0 p-0">
+    <!-- fonts 
+        
+        'Montserrat'
+        Cormorant-Garamond
+
+
+    -->
+
+
+    <header class=" relative">
+
+        <!-- Hero -->
+        <div class="hero top-0 z-0 w-full">
+
+            <div id="carouselExampleFade" class="carousel slide carousel-fade ">
+                <div class="carousel-inner h-[100vh] bg-cover contrast-75 w-full">
+                    <div class="carousel-item  active w-full">
+                        <img src="https://images.unsplash.com/photo-1532170579297-281918c8ae72?q=80&w=2084&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            class="d-block w-100 " alt="model_1">
+                    </div>
+                    <div class="carousel-item w-full">
+                        <img src="https://images.unsplash.com/photo-1502324419495-6705519dd08b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            class="d-block w-100" alt="model_2">
+                    </div>
+                    <div class="carousel-item w-full">
+                        <img src="https://images.unsplash.com/photo-1557611382-a6ec38905c47?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            class="d-block w-100" alt="model_3">
+                    </div>
+
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Navbar -->
+        <div class="nav_no_bg_placeholder" id="nav_no_bg_placeholder"></div>
+
+        <!-- Card of Hero -->
+        <div class="mycard flex flex-col top-[50%] absolute text-white z-20 my-4
+        items-center justify-center mx-[25%] mr-[25%] w-[50%] text-center text-wrap text-lg">
+
+            <h6>Casual & Everyday</h6>
+            <h1 class=" text-[4.5rem] font-bold italic font-['Cormorant-Garamond']">Effortlessly blend comfort & style!
+            </h1>
+            <p class="">Effortlessly blend comfort and style with our Casual & Everyday collection, featuring cozy
+                sweaters,versatile denim, laid-back tees, and relaxed-fit joggers for your everyday adventures</p>
+            <button id="hero_view_col_btn" class="hero_view_col_btn border px-5 py-3 hover:bg-white hover:text-black hover:duration-700
+             hover: ease-out">
+                VIEW COLLECTION
+            </button>
+        </div>
+
+    </header>
+
+
+    <main class=" relative ">
+
+        <div class="sec_One h-[100vh] flex relative">
+
+            <div class="middle-start w-full flex items-center justify-center relative">
+
+                <div class="msg text-white w-[60%] z-20 absolute text-center ml-[25%] mr-[25%] p-3">
+                    <h1 class="text-wrap font-[Cormorant-Garamond] font-bold italic text-[4.5rem] brightness-100">Lorem
+                        ipsum dolor, sit amet consectetur adipisicing elit</h1>
+                    <p class="font-['Montserrat'] font-bold">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Tempora mollitia facere natus nesciunt explicabo, magnam tenetur ullam. Ut quae, eaque at dolore
+                        illo perferendis voluptatum hic eveniet quo molestias sed.
+                    </p>
+                </div>
+
+                <div
+                    class="bgImage bg-img-scale bg-[url('https://images.unsplash.com/photo-1525562723836-dca67a71d5f1?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] brightness-50 absolute -z-10">
+                </div>
+            </div>
+        </div>
+
+        <div class="sec_Two h-[90vh] relative flex">
+            <!-- Most Populer Section -->
+            <div class="contain_section top-0 absolute w-full h-full">
+
+                <div class="most_populer w-full h-full bg-white flex flex-col justify-center items-center pt-11">
+
+                    <h1 class="italic font-[Cormorant-Garamond] text-7xl to">Most Populer</h1>
+
+                    <div class="cards flex gap-4 p-4 font-['Montserrat']">
+
+                        <div class="my-card w-[18rem] flex flex-col justify-center items-center">
+                            <img src="https://images.unsplash.com/photo-1548611535-b3716767c3d6?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                class="rounded-md w-[100%] h-[100%] object-cove" alt="model_1">
+
+                            <div class="discription flex flex-col justify-center items-center ">
+
+                                <h6 class=" text-stone-400 mt-3">Casule</h6>
+                                <h6
+                                    class=" hover:cursor-pointer font-[Cormorant-Garamond] hover:text-red-600 text-lg font-bold">
+                                    Off Shoulder Sweater</h6>
+                                <h6 class=" text-slate-500">$187</h6>
+                            </div>
+                            <div class="sizes flex mr-7">
+                                <ul class=" flex flex-row space-x-4 mr-4 justify-center items-center">
+                                    <li
+                                        class="flex border-2 w-8 h-8 items-center justify-center hover:border-solid hover:border-black">
+                                        <a class="no-underline text-gray-600 " href="#">XL</a>
+                                    </li>
+                                    <li
+                                        class="flex border-2 w-8 h-8 items-center justify-center hover:border-solid hover:border-black">
+                                        <a class="no-underline text-gray-600 " href="#">L</a>
+                                    </li>
+                                    <li
+                                        class="flex border-2 w-8 h-8 items-center justify-center hover:border-solid hover:border-black">
+                                        <a class="no-underline text-gray-600 " href="#">M</a>
+                                    </li>
+                                    <li
+                                        class="flex border-2 w-8 h-8 items-center justify-center hover:border-solid hover:border-black">
+                                        <a class="no-underline text-gray-600 " href="#">S</a>
+                                    </li>
+                                    <li
+                                        class="flex border-2 w-8 h-8 items-center justify-center hover:border-solid hover:border-black">
+                                        <a class="no-underline text-gray-600 " href="#">XS</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="colors flex items-center justify-center relative">
+                                <ul class=" flex flex-row space-x-4 mr-4 items-center justify-center">
+                                    <li class=""><button
+                                            class=" bg-red-500 w-5 h-5 border-2 border-solid border-black rounded-xl hover:h-6 hover:w-6"></button>
+                                    </li>
+                                    <li class=""><button
+                                            class=" bg-green-500 w-5 border-2 border-solid border-black h-5 rounded-xl hover:h-6 hover:w-6"></button>
+                                    </li>
+                                    <li class=""><button
+                                            class=" bg-black w-5 h-5 border-2 border-solid border-black rounded-xl hover:h-6 hover:w-6"></button>
+                                    </li>
+                                    <li class=""><button
+                                            class=" bg-yellow-500 w-5 h-5 border-2 border-solid border-black rounded-xl hover:h-6 hover:w-6"></button>
+                                    </li>
+                                    <li class=""><button
+                                            class=" bg-white w-5 h-5 border-2 border-solid border-black rounded-xl hover:h-6 hover:w-6"></button>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        <div class="my-card w-[18rem] flex flex-col justify-center items-center">
+                            <img src="https://images.unsplash.com/photo-1513094735237-8f2714d57c13?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                class="rounded-md h-[100%] object-cover" alt="model_2">
+
+                            <div class="discription flex flex-col justify-center items-center ">
+
+                                <h6 class=" text-stone-400 mt-3">Work & Office</h6>
+                                <h6
+                                    class=" hover:cursor-pointer font-[Cormorant-Garamond] hover:text-red-600 text-lg font-bold">
+                                    Timeless Classic Collection</h6>
+                                <h6 class=" text-slate-500">$149</h6>
+                            </div>
+                            <div class="sizes flex mr-7">
+                                <ul class=" flex flex-row space-x-4 mr-4 justify-center items-center">
+
+                                    <li
+                                        class="flex border-2 w-8 h-8 items-center justify-center hover:border-solid hover:border-black">
+                                        <a class="no-underline text-gray-600 " href="#">L</a>
+                                    </li>
+                                    <li
+                                        class="flex border-2 w-8 h-8 items-center justify-center hover:border-solid hover:border-black">
+                                        <a class="no-underline text-gray-600 " href="#">M</a>
+                                    </li>
+                                    <li
+                                        class="flex border-2 w-8 h-8 items-center justify-center hover:border-solid hover:border-black">
+                                        <a class="no-underline text-gray-600 " href="#">S</a>
+                                    </li>
+                                    <li
+                                        class="flex border-2 w-8 h-8 items-center justify-center hover:border-solid hover:border-black">
+                                        <a class="no-underline text-gray-600 " href="#">XS</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="colors flex items-center justify-center relative">
+                                <ul class=" flex flex-row space-x-4 mr-4 items-center justify-center">
+                                    <li class=""><button
+                                            class=" bg-red-500 w-5 h-5 border-2 border-solid border-black rounded-xl hover:h-6 hover:w-6"></button>
+                                    </li>
+                                    <li class=""><button
+                                            class=" bg-green-500 w-5 border-2 border-solid border-black h-5 rounded-xl hover:h-6 hover:w-6"></button>
+                                    </li>
+                                    <li class=""><button
+                                            class=" bg-[#213380] w-5 h-5 border-2 border-solid border-black rounded-xl hover:h-6 hover:w-6"></button>
+                                    </li>
+
+                                    <li class=""><button
+                                            class=" bg-white w-5 h-5 border-2 border-solid border-black rounded-xl hover:h-6 hover:w-6"></button>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        <div class="my-card w-[18rem] flex flex-col justify-center items-center">
+                            <img src="https://images.unsplash.com/photo-1552874869-5c39ec9288dc?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                class="rounded-md h-[100%] object-cove" alt="model_3">
+
+                            <div class="discription flex flex-col justify-center items-center ">
+
+                                <h6 class=" text-stone-400 mt-3">Casule & Elegent</h6>
+                                <h6
+                                    class=" hover:cursor-pointer font-[Cormorant-Garamond] hover:text-red-600 text-lg font-bold">
+                                    Long Sleeved top</h6>
+                                <h6 class=" text-slate-500">$127</h6>
+                            </div>
+                            <div class="sizes flex mr-7">
+                                <ul class=" flex flex-row space-x-4 mr-4 justify-center items-center">
+                                    <li
+                                        class="flex border-2 w-8 h-8 items-center justify-center hover:border-solid hover:border-black">
+                                        <a class="no-underline text-gray-600 " href="#">XL</a>
+                                    </li>
+                                    <li
+                                        class="flex border-2 w-8 h-8 items-center justify-center hover:border-solid hover:border-black">
+                                        <a class="no-underline text-gray-600 " href="#">L</a>
+                                    </li>
+                                    <li
+                                        class="flex border-2 w-8 h-8 items-center justify-center hover:border-solid hover:border-black">
+                                        <a class="no-underline text-gray-600 " href="#">M</a>
+                                    </li>
+                                    <li
+                                        class="flex border-2 w-8 h-8 items-center justify-center hover:border-solid hover:border-black">
+                                        <a class="no-underline text-gray-600 " href="#">S</a>
+                                    </li>
+                                    <li
+                                        class="flex border-2 w-8 h-8 items-center justify-center hover:border-solid hover:border-black">
+                                        <a class="no-underline text-gray-600 " href="#">XS</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="colors flex items-center justify-center relative">
+                                <ul class=" flex flex-row space-x-4 mr-4 items-center justify-center">
+
+
+                                    <li class=""><button
+                                            class=" bg-black w-5 h-5 border-2 border-solid border-black rounded-xl hover:h-6 hover:w-6"></button>
+                                    </li>
+
+                                    <li class=""><button
+                                            class=" bg-white w-5 h-5 border-2 border-solid border-black rounded-xl hover:h-6 hover:w-6"></button>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        <div class="my-card w-[18rem] flex flex-col justify-center items-center">
+                            <img src="https://images.unsplash.com/photo-1618244972963-dbee1a7edc95?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                class="rounded-md h-[100%] object-cove" alt="model_4">
+
+                            <div class="discription flex flex-col justify-center items-center ">
+
+                                <h6 class=" text-stone-400 mt-3">Formal</h6>
+                                <h6
+                                    class=" hover:cursor-pointer font-[Cormorant-Garamond] hover:text-red-600 text-lg font-bold">
+                                    Office Style</h6>
+                                <h6 class=" text-slate-500">$238</h6>
+                            </div>
+                            <div class="sizes flex mr-7">
+                                <ul class=" flex flex-row space-x-4 mr-4 justify-center items-center">
+                                    <li
+                                        class="flex border-2 w-8 h-8 items-center justify-center hover:border-solid hover:border-black">
+                                        <a class="no-underline text-gray-600 " href="#">XL</a>
+                                    </li>
+                                    <li
+                                        class="flex border-2 w-8 h-8 items-center justify-center hover:border-solid hover:border-black">
+                                        <a class="no-underline text-gray-600 " href="#">L</a>
+                                    </li>
+                                    <li
+                                        class="flex border-2 w-8 h-8 items-center justify-center hover:border-solid hover:border-black">
+                                        <a class="no-underline text-gray-600 " href="#">M</a>
+                                    </li>
+                                    <li
+                                        class="flex border-2 w-8 h-8 items-center justify-center hover:border-solid hover:border-black">
+                                        <a class="no-underline text-gray-600 " href="#">S</a>
+                                    </li>
+                                    <li
+                                        class="flex border-2 w-8 h-8 items-center justify-center hover:border-solid hover:border-black">
+                                        <a class="no-underline text-gray-600 " href="#">XS</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="colors flex items-center justify-center relative">
+                                <ul class=" flex flex-row space-x-4 mr-4 items-center justify-center">
+                                    <li class=""><button
+                                            class=" bg-amber-800 w-5 h-5 border-2 border-solid border-black rounded-xl hover:h-6 hover:w-6"></button>
+                                    </li>
+                                    <li class=""><button
+                                            class=" bg-[#141E46] w-5 border-2 border-solid border-black h-5 rounded-xl hover:h-6 hover:w-6"></button>
+                                    </li>
+                                    <li class=""><button
+                                            class=" bg-black w-5 h-5 border-2 border-solid border-black rounded-xl hover:h-6 hover:w-6"></button>
+                                    </li>
+
+                                    <li class=""><button
+                                            class=" bg-white w-5 h-5 border-2 border-solid border-black rounded-xl hover:h-6 hover:w-6"></button>
+                                    </li>
+                                </ul>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+        <div class="sec_Three h-[100vh] w-full relative flex bg-green-500">
+
+            <div class="blog_section w-full flex flex-col absolute">
+
+                <div
+                    class="blog_img bg-[url('https://images.unsplash.com/photo-1559563458-527698bf5295?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-img-scale contrast-50 ">
+                </div>
+
+                <div class="blog_card absolute flex flex-row right-40 top-24">
+
+                    <div class="blog_card_img w-[30vw]  hover:cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1605813810260-1330807535bb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            class=" h-[65vh] w-[30vw] object-contain" alt="blog_girl">
+                    </div>
+
+                    <div
+                        class="blog_card_info flex flex-col top-[100%] absolute text-white items-center justify-center w-[90%] text-center text-wrap text-lg my-3 mx-4">
+
+
+                        <h1 class=" text-[1.9rem] font-bold italic font-[Cormorant-Garamond]">Explore Our Exquisite Bag
+                            Collection Now!
+                        </h1>
+                        <button id="sec_three_btn"
+                            class=" border px-4 py-2 hover:bg-white hover:text-black hover:duration-700 hover: ease-out m-2">
+                            VIEW COLLECTION
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="sec_Four h-[100vh] w-full relative flex  bg-green-300">
+            <div class="professional_section flex relative flex-row">
+
+                <div class="professional_coll_msg w-[50vw] bg-white relative flex justify-center items-center">
+
+                    <div class="pro_col_info flex flex-col  text-black
+                    items-start justify-center w-[50%] text-left text-wrap text-base space-y-6 ml-14">
+
+                        <h6>WORK & OFFICE ATTIRE</h6>
+                        <h1 class=" text-[2.7rem] font-bold italic font-[Cormorant-Garamond]">
+                            Professional Pinstripe Blazers Collection
+                        </h1>
+                        <p class=" text-gray-500 text-left">Elevate your workwear with our Professional Pinstripe
+                            Blazers Collection, where tailored sophistication meets modern confidence for a powerfully
+                            polished office look.</p>
+                        <button id="sec_four_btn" class=" border-2 border-solid border-black px-5 py-3 hover:bg-black hover:text-white hover:duration-700
+                         hover: ease-out">
+                            VIEW COLLECTION
+                        </button>
+                    </div>
+
+                </div>
+
+                <div
+                    class="professional_col_model w-[50vw] relative bg-[url('https://websitedemos.net/clothing-store-02/wp-content/uploads/sites/1447/2024/03/bg-05-1.jpg')] bg-cover bg-no-repeat bg-right-bottom">
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="sec_Five h-[90vh] w-full relative flex bg-blue-400">
+
+            <div class="five_shop_section w-full flex flex-col absolute">
+
+                <div
+                    class="five_sec_bg_img bg-[url('https://images.unsplash.com/photo-1511980995225-25360cb0aa29?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-img-scale bg-right bg-cover brightness-50">
+                </div>
+
+                <div
+                    class="five_sec_card absolute flex flex-row top-[-10vh] left-28 space-y-10 items-center justify-center">
+
+                    <div class="blog_card_img w-[30vw]  hover:cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1976&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            class=" h-[65vh] w-[30vw] object-contain" alt="blog_girl">
+                    </div>
+
+                    <div
+                        class="blog_card_info flex flex-col top-[100%] absolute text-white items-center justify-center w-[90%] text-center text-wrap text-lg space-y-3">
+
+
+                        <h1 class=" text-[2.3rem] font-bold italic font-[Cormorant-Garamond] text-left space-y-3">
+                            Discover The Allure Of Fashion Reinvented!
+                        </h1>
+                        <div class=" text-left text-[.9rem] mb-4">
+                            Dive into a world of style with our latest collection! Shop now and redefine your wardrobe
+                            narrative!
+                        </div>
+                        <button id="sec_five_btn"
+                            class=" border px-5 py-2 space-y-4 hover:bg-white hover:text-black hover:duration-700 hover: ease-out m-2">
+                            Shop Now
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="sec_Six h-[90vh] w-full relative flex bg-blue-600">
+
+            <!-- New Arraiver Section -->
+            <div class="New_arraiver_contain_section w-full h-full">
+
+                <div
+                    class="New_arraiver_contain_section_inside w-full h-full bg-white flex flex-col justify-center items-center pt-11 space-y-11">
+
+                    <h1 class="italic font-[Cormorant-Garamond] text-7xl ">Newest Products</h1>
+
+                    <div class="cards flex gap-6 p-4 font-['Montserrat'] ">
+
+                        <!-- Model 1 -->
+                        <div class="my-card w-[18rem] flex flex-col justify-center items-center">
+                            <img src="https://images.unsplash.com/photo-1606902965551-dce093cda6e7?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                class="rounded-md h-[100%] object-cove" alt="model_1">
+
+                            <div class="discription flex flex-col justify-center items-center ">
+
+                                <h6 class=" text-stone-400 mt-3">Activewear</h6>
+                                <h6
+                                    class=" hover:cursor-pointer font-[Cormorant-Garamond] hover:text-red-600 text-lg font-bold">
+                                    Relaxed Fit Joggers</h6>
+                                <h6 class=" text-slate-500">$109.99</h6>
+                            </div>
+
+
+
+                        </div>
+
+                        <!-- Model 2 -->
+                        <div class="my-card w-[18rem] flex flex-col justify-center items-center">
+                            <img src="https://images.unsplash.com/photo-1600275669177-176b3c586d22?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                alt="model_2">
+
+                            <div class="discription flex flex-col justify-center items-center ">
+
+                                <h6 class=" text-stone-400 mt-3">Work & Office</h6>
+                                <h6
+                                    class=" hover:cursor-pointer font-[Cormorant-Garamond] hover:text-red-600 text-lg font-bold">
+                                    Professional Pinstripe Blazer
+                                </h6>
+                                <h6 class=" text-slate-500">$250.00</h6>
+                            </div>
+
+                        </div>
+
+                        <!-- Model 3 -->
+                        <div class="my-card w-[18rem] flex flex-col justify-center items-center">
+                            <img src="https://images.unsplash.com/photo-1672710028050-c5c683da5ca1?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                alt="model_3">
+
+                            <div class="discription flex flex-col justify-center items-center ">
+
+                                <h6 class=" text-stone-400 mt-3">Evening Dresses</h6>
+                                <h6
+                                    class=" hover:cursor-pointer font-[Cormorant-Garamond] hover:text-red-600 text-lg font-bold">
+                                    Urban Chic Ensemble</h6>
+                                <h6 class=" text-slate-500">$224.95</h6>
+                            </div>
+                        </div>
+
+                        <!-- Model 4 -->
+                        <div class="my-card w-[18rem] flex flex-col justify-center items-center">
+                            <img src="https://images.unsplash.com/photo-1621338215802-e04cfd0b298d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                alt="model_4">
+
+                            <div class="discription flex flex-col justify-center items-center ">
+
+                                <h6 class=" text-stone-400 mt-3">Activewear</h6>
+                                <h6
+                                    class=" hover:cursor-pointer font-[Cormorant-Garamond] hover:text-red-600 text-lg font-bold">
+                                    Weekend Wanderlust Wardrobee</h6>
+                                <h6 class=" text-slate-500">
+                                    $119.95</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+        <div class="sec_Seven h-[100vh] w-full relative flex bg-red-600">
+            <div class="middle-start w-full flex items-center justify-center relative">
+
+                <div class="msg text-white w-fit z-20 absolute text-center ml-[25%] mr-[25%] p-3">
+
+                    <p class=" text-yellow-400">
+                        <span class="material-symbols-outlined">
+                            star
+                        </span><span class="material-symbols-outlined">
+                            star
+                        </span><span class="material-symbols-outlined">
+                            star
+                        </span><span class="material-symbols-outlined">
+                            star
+                        </span><span class="material-symbols-outlined">
+                            star
+                        </span>
+                    </p>
+
+                    <p class="font-['Cormorant-Garamond'] text-[1.9rem] text-center text-wrap  italic">”FemmeWardrobe Is
+                        My Fashion Sanctuary! The Curated Collection Effortlessly Blends Chic Trends With Timeless
+                        Elegance, Making Every Purchase A Delightful Discovery. The Quality Of Their Pieces Is
+                        Unmatched, And I Appreciate The Brand's Commitment To Sustainable Fashion. What Truly Sets
+                        FemmeWardrobe Apart Is Their Customer-Centric Approach.”
+                    </p>
+                </div>
+                <div
+                    class="bgImage bg-img-scale bg-[url('https://plus.unsplash.com/premium_photo-1661378552418-da9a83d4e901?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] brightness-50 absolute -z-10">
+                </div>
+            </div>
+        </div>
+
+
+        <div class="sec_Eight h-[40vh] w-full relative flex bg-white justify-center items-center">
+
+            <div class="user_info w-full bg-white flex flex-row justify-center items-center gap-6">
+
+                <!-- info cards -->
+                <div class="user_info_card_one flex flex-col justify-center items-center w-64 space-y-3">
+                    <div class="icon font-bold"><span class="material-symbols-outlined">
+                            lock
+                        </span>
+                    </div>
+
+                    <h2 class="font-[Cormorant-Garamond] italic font-bold">Secure Payments</h2>
+                    <p class="font-['Montserrat'] text-wrap text-center text-gray-500">Shop with confidence knowing that
+                        your transactions are safeguarded.</p>
+
+                </div>
+                <div class="user_info_card_two flex flex-col justify-center items-center w-64 space-y-3">
+                    <div class="icon font-bold">
+                        <span class="material-symbols-outlined">
+                            local_shipping
+                        </span>
+                    </div>
+
+                    <h2 class="font-[Cormorant-Garamond] italic font-bold">Free Shipping</h2>
+                    <p class="font-['Montserrat'] text-wrap text-center text-gray-500">Shopping with no extra charges –
+                        savor the liberty of complimentary shipping on every order.</p>
+
+                </div>
+                <div class="user_info_card_three flex flex-col justify-center items-center w-64 space-y-3">
+                    <div class="icon font-bold"><span class="material-symbols-outlined">
+                            Undo
+                        </span>
+                    </div>
+
+                    <h2 class="font-[Cormorant-Garamond] italic font-bold">Easy Returns</h2>
+                    <p class="font-['Montserrat'] text-wrap text-center text-gray-500">With our hassle-free Easy
+                        Returns, changing your mind has never been more convenient.</p>
+
+                </div>
+                <div class="user_info_card_four flex flex-col justify-center items-center w-64 space-y-3">
+                    <div class="icon font-bold"><span class="material-symbols-outlined">
+                            <span class="material-symbols-outlined">
+                                track_changes
+
+                            </span>
+                    </div>
+
+                    <h2 class="font-[Cormorant-Garamond] italic font-bold">Order Tracking</h2>
+                    <p class="font-['Montserrat'] text-wrap text-center text-gray-500">Stay in the loop with our Order
+                        Tracking feature – from checkout to your doorstep.</p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="sec_Nine h-[70vh] w-full relative flex bg-stone-600">
+
+            <div class="explore_sec w-full flex flex-col absolute">
+
+                <div
+                    class="explore_bg_img bg-[url('https://images.unsplash.com/photo-1440508319978-8b67875e39d7?q=80&w=2067&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-img-scale-two brightness-50">
+                </div>
+
+            </div>
+
+            <div
+                class="exp_card flex flex-col text-white gap-3 absolute w-[40%] right-36 top-36 justify-center items-start">
+
+                <div class="exp_card_info text-white flex flex-col text-wrap space-y-2 justify-center items-start">
+                    <p class=" font-['Montserrat']">EXPLORE</p>
+                    <h1 class=" font-['Cormorant-Garamond'] italic w-[60%]">Elevate Your Wardrobe, Embrace Timeless
+                        Style!
+                    </h1>
+                    <p class=" font-['Montserrat']">Explore our collections today and experience the joy of fashion.
+                        Shop now for the epitome of chic sophistication!
+                    </p>
+
+                </div>
+
+                <button id="sec_nine_btn"
+                    class=" border px-3 py-4 hover:bg-white hover:text-black hover:duration-700 hover: ease-out m-2 w-52">
+                    Shop Now
+                </button>
+            </div>
+
+
+        </div>
+
+
+
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-placeholder" id="footer-placeholder"></div>
+    </footer>
+
+
+
+    <!-- Js Section -->
+    <script type="module" src="../JS/home.js"></script>
+
+</body>
+
+</html>

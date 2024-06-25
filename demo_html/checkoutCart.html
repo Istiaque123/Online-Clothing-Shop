@@ -1,0 +1,101 @@
+<main>
+
+    <div id="chackOutIformation" class="chackOutIformation flex flex-col items-center justify-center mt-[8rem] mb-[10rem] gap-y-[5rem]">
+
+        <div class=" w-full min-h-[15rem] relative flex flex-col items-center justify-center gap-2">
+
+            <h1 class=" font-['Cormorant-Garamond'] font-semibold italic text-5xl">Cart</h1>
+            <div
+                class="cart_sec w-[80rem] relative flex flex-col items-start justify-center border-[1px] border-solid border-gray-300 gap-5 bg-gray-100">
+
+
+                <div class="productHeading w-full relative ">
+                    <div
+                        class="product_heading_info flex flex-row items-center justify-around font-['Montserrat'  font-semibold text-gray-500 relative ">
+                        <p class=" absolute left-[21.5rem] top-3">Product</p>
+                        <p class=" absolute top-3 left-[43rem]">Price</p>
+                        <p class=" absolute top-3 left-[54rem]">Quantity</p>
+                        <p class=" absolute top-3 left-[71.2rem]">Subtotal</p>
+                    </div>
+
+                </div>
+
+                <div class="item_sec w-full border-[1px] flex flex-col border-solid border-gray-300 bg-white">
+
+                    <!-- product Section -->
+                    <div
+                        class="items flex flex-row items-center justify-around h-[9rem] border-[1px] border-solid border-gray-300 relative box-border">
+
+                        <button type="button" id="remove_item" class="remove_item btn-close "
+                            aria-label="Close"></button>
+
+                        <div class="produnct_img w-[5rem] mr-[3rem]">
+                            <img src="https://images.unsplash.com/photo-1548611535-b3716767c3d6?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                alt="" srcset="">
+                        </div>
+
+                        <div
+                            class="product_info flex flex-col items-start justify-center font-['Montserrat'] font-semibold mr-[6rem]">
+                            <p>Off Shoulder Sweater</p>
+                            <p class=" text-gray-400">Size: M - Color: green</p>
+
+                        </div>
+
+                        <div class="product_price font-['Montserrat'] font-semibold text-gray-400 mr-10">
+                            <p>$187.00</p>
+                        </div>
+
+                        <div class="pruduct_quentity">
+                            <div class="btn_group flex box-border mr-10">
+                                <button
+                                    class="btn_neg border-[1px] px-[1.3rem] py-[0.5rem] border-black box-border h-[3rem] flex justify-center items-center hover:bg-red-300 ">-</button>
+                                <p
+                                    class="show_count border-[1px] px-[1.3rem] py-[0.5rem] border-black h-[3rem] flex justify-center items-center font-semibold">
+                                    1</p>
+                                <button
+                                    class="btn_pos border-[1px] px-[1.3rem] py-[0.5rem] border-black box-border h-[3rem] flex justify-center items-center hover:bg-green-300">+</button>
+                            </div>
+                        </div>
+
+                        <div class="finile_price font-['Montserrat'] font-semibold text-gray-400 mr-10">
+                            <p>$187.00</p>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="final_price_sec w-[43rem] flex flex-col ml-[37rem] ">
+
+            <div
+            class="checkout_box w-full h-[30rem] items-center justify-center border-[1px] border-solid border-gray-300 flex flex-col gap-y-[6rem]">
+            <h1 class=" font-[Cormorant-Garamond] font-semibold italic">Cart Total</h1>
+            
+            
+            <div class="final_price_sec flex flex-col items-center justify-center relative">
+                    <div class="sectionDiv w-[40rem] border-[1px] border-solid absolute z-10 top-[-2rem] border-gray-400"></div>
+
+                    <div
+                        class=" w-full flex flex-row items-center justify-center font-['Montserrat'] font-semibold text-gray-600">
+                        <p class="ml-[4rem]">Total</p>
+                        <p class="ml-[14rem]">$172.00</p>
+                    </div>
+
+                    <div class="sectionDiv w-[40rem] border-[1px] border-solid absolute z-10 bottom-[-2rem] border-gray-400"></div>
+
+                </div>
+                <button id="checkOutBtn"
+                    class=" border-[1px] border-solid border-black px-[14rem] py-[1.5rem] hover:bg-black hover:border-none hover:text-white hover:duration-300 hover: ease-out font-['Montserrat'] font-semibold leading-relaxed">Proceed
+                    To Check Out</button>
+            </div>
+            
+        </div>
+
+    </div>
+
+
+    
+</main>

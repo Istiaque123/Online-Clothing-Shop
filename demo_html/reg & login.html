@@ -1,0 +1,131 @@
+<main>
+
+    <!-- Login -->
+    <div class="login_form flex flex-col gap-14 items-center justify-center">
+
+        <form class=" w-[40rem]">
+            <div class="mb-3 flex flex-col gap-3">
+                <label for="loginEmail" class="form-label font-[Cormorant-Garamond] text-xl italic">Email
+                    address</label>
+                <input type="email" class="form-control" id="loginEmail" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3 flex flex-col gap-3">
+                <label for="loginPassword"
+                    class="form-label font-[Cormorant-Garamond] text-xl italic">Password</label>
+                <input type="password" class="form-control" id="loginPassword">
+            </div>
+
+            <button id="submit" type="submit"
+                class=" border-[1px] border-solid border-black px-[19rem] py-[1rem] mt-10  hover:bg-black hover:border-none hover:text-white hover:duration-300 hover: ease-out">Login</button>
+        </form>
+
+        <div class="seperation border-[1px] border-solid border-gray-200 w-[40.5rem] relative ">
+            <h6 class=" absolute -top-[.7rem] bg-white w-[13rem] left-[13rem] flex items-center justify-center">Don't have an account?</h6>
+        </div>
+
+        <button id="submit"
+                class=" border-[1px] border-solid border-black px-[14.3rem] py-[1rem] mt-10  hover:bg-black hover:border-none hover:text-white hover:duration-300 hover: ease-out">Create an Account</button>
+
+    </div>
+
+
+    <!-- Ac Create -->
+    <div id="account_create" class="account_create flex flex-col items-center justify-start gap-3 mt-6">
+        <h1 id="heading_info" class=" font-[Cormorant-Garamond] italic mb-20">Create an Account</h1>
+        <div class="acc_crt_form flex flex-col gap-14 items-center justify-center w-full">
+
+
+            <form id="registration-form">
+                <div class="mb-4 flex space-x-2">
+                    <div class="flex-1">
+                        <label for="first" class="block text-gray-700 font-bold mb-2">First Name:</label>
+                        <input type="text" id="first" name="first" required class="w-full px-3 py-2 border border-gray-300 rounded-lg" />
+                    </div>
+                    <div class="flex-1">
+                        <label for="last" class="block text-gray-700 font-bold mb-2">Last Name:</label>
+                        <input type="text" id="last" name="last" required class="w-full px-3 py-2 border border-gray-300 rounded-lg" />
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block text-gray-700 font-bold mb-2">Email:</label>
+                    <input type="email" id="email" name="email" required class="w-full px-3 py-2 border border-gray-300 rounded-lg" />
+                </div>
+                <div class="mb-4 flex space-x-2">
+                    <div class="flex-1">
+                        <label for="password" class="block text-gray-700 font-bold mb-2">Password:</label>
+                        <input type="password" id="password" name="password" pattern="^(?=.*\d)(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9])\S{8,}$" title="Password must contain at least one number, one alphabet, one symbol, and be at least 8 characters long" required class="w-full px-3 py-2 border border-gray-300 rounded-lg" />
+                    </div>
+                    <div class="flex-1">
+                        <label for="repassword" class="block text-gray-700 font-bold mb-2">Re-type Password:</label>
+                        <input type="password" id="repassword" name="repassword" required class="w-full px-3 py-2 border border-gray-300 rounded-lg" />
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label for="birthdate" class="block text-gray-700 font-bold mb-2">Birth Date:</label>
+                    <input type="date" id="birthdate" name="birthdate" required class="w-full px-3 py-2 border border-gray-300 rounded-lg" />
+                </div>
+
+
+                <div class="mb-4">
+                    <label for="mobile" class="block text-gray-700 font-bold mb-2">Contact:</label>
+                    <input type="text" id="mobile" name="mobile" pattern="^\d{10}$" title="Contact must be exactly 10 digits" required class="w-full px-3 py-2 border border-gray-300 rounded-lg" />
+                </div>
+                <div class="mb-4">
+                    <label for="gender" class="block text-gray-700 font-bold mb-2">Gender:</label>
+                    <select id="gender" name="gender" required class="w-full px-3 py-2 border border-gray-300 rounded-lg hover:cursor-pointer">
+                        <option value="">Select Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="mb-4 flex space-x-2">
+                    <div class="flex-1">
+                        <label for="district" class="block text-gray-700 font-bold mb-2">District:</label>
+                        <select id="district" name="district" required class="w-full px-3 py-2 border border-gray-300 rounded-lg hover:cursor-pointer">
+                            <option value="">Select District</option>
+                            <option value="Dhaka">Dhaka</option>
+                            <option value="Chittagong">Chittagong</option>
+                            <option value="Khulna">Khulna</option>
+                            <option value="Rajshahi">Rajshahi</option>
+                            <!-- Add more districts as needed -->
+                        </select>
+                    </div>
+                    <div class="flex-1">
+                        <label for="region" class="block text-gray-700 font-bold mb-2">Region:</label>
+                        <select id="region" name="region" required class="w-full px-3 py-2 border border-gray-300 rounded-lg hover:cursor-pointer">
+                            <option value="">Select Region</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mb-4 flex space-x-2">
+                    <div class="flex-1">
+                        <label for="city" class="block text-gray-700 font-bold mb-2">City:</label>
+                        <select id="city" name="city" required class="w-full px-3 py-2 border border-gray-300 rounded-lg hover:cursor-pointer">
+                            <option value="">Select City</option>
+                        </select>
+                    </div>
+                    <div class="flex-1">
+                        <label for="postalcode" class="block text-gray-700 font-bold mb-2">Postal Code:</label>
+                        <input type="text" id="postalcode" name="postalcode" pattern="^\d{4}$" title="Postal Code must be exactly 4 digits" required class="w-full px-3 py-2 border border-gray-300 rounded-lg" />
+                    </div>
+                </div>
+                <button id="submit" type="submit"
+                            class=" border-[1px] border-solidborder-black px-[15rem] py-[1rem]  hover:bg-black hover:border-none hover:text-white hover:duration-300 hover: ease-out">Submit</button>
+            </form>
+
+            <div class="seperation border-[1px] border-solid border-gray-200 w-[36rem] relative ">
+                <h6 class=" absolute -top-[.7rem] bg-white w-[17rem] left-[9rem] flex items-center justify-center font-semibold">Already have an account?
+                </h6>
+            </div>
+
+            <p>If you already have an account with us, please login at the</p>
+            <p id="loginPage" class=" font-semibold hover:cursor-pointer text-red-400 hover:text-red-600">Login Page</p>
+
+        </div>
+
+    </div>
+
+</main>
