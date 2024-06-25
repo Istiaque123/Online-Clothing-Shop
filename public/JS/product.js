@@ -120,8 +120,9 @@ function renderProduct( product ) {
 
     <!-- 1st Section -->
     <div class="first_section flex flex-row gap-5 items-start justify-center relative">
-        <div class="img_div w-[33rem] shadow-xl">
-            <img src="${product.imgSrc}" alt="item_img" class="object-cover rounded-md">
+
+        <div class="img_div w-[33rem] shadow-xl box-border rounded-md overflow-hidden hover:cursor-pointer">
+            <img src="${product.imgSrc}" alt="item_img" class="object-cover box-border transition-transform duration-500 transform hover:scale-125">
         </div>
 
         <div class="product_info flex flex-col w-[40rem] space-y-5">

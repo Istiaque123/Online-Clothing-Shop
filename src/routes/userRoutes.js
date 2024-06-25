@@ -1,17 +1,25 @@
 import express from 'express';
-import User from '../models/userModel.js';
 import bcrypt from 'bcryptjs';
+import nodemailer from 'nodemailer';
+import User from '../models/userModel.js';
 import Order from '../models/orderModel.js';
 import Product from '../models/productModel.js';
-
 
 const router = express.Router();
 
 // Middleware to parse JSON bodies
-router.use( express.json() );
+router.use(express.json());
 
+// Nodemailer transporter configuration
+const transporter = nodemailer.createTransport({
+    service: 'Gmail',
+    auth: {
+        user: 'shazamrocks4@gmail.com', // Your email
+        pass: 'smkz wyki gcmc egiv'  // App password generated in Google Account or your regular password if "Allow less secure apps" is on
+    }
+});
 
-router.post( '/register', async ( req, res ) => {
+router.post('/register', async (req, res) => {
     try {
         const {
             firstName,
@@ -28,33 +36,25 @@ router.post( '/register', async ( req, res ) => {
         } = req.body;
 
         // Validate incoming data (add more validation as needed)
-        if ( !firstName || !lastName || !email || !password || !birthDate || !mobile || !gender || !district || !region || !city || !postalCode ) {
-            return res.status( 400 ).json( {
+        if (!firstName || !lastName || !email || !password || !birthDate || !mobile || !gender || !district || !region || !city || !postalCode) {
+            return res.status(400).json({
                 message: `Please provide all required fields.... Something missing ${firstName} fn: ${lastName} ln:${email} p:${password} bd:${birthDate}  phn:${mobile}  g:${gender}  d:${district}  r:${region}  c:${city}  pc:${postalCode}`
-            } );
+            });
         }
 
-
-
         // Check if the user already exists
-        const existingUser = await User.findOne( {
-            email
-        } );
-        if ( existingUser ) {
-
-            // return window.location.href = window.location.href = 'http://localhost:3000/user.html'; 
-            return res.status( 401 ).json( {
+        const existingUser = await User.findOne({ email });
+        if (existingUser) {
+            return res.status(401).json({
                 message: 'User already exists'
-            } );
-
-
+            });
         }
 
         // Hash the password
-        const hashedPassword = await bcrypt.hash( password, 12 );
+        const hashedPassword = await bcrypt.hash(password, 12);
 
         // Create a new user
-        const newUser = new User( {
+        const newUser = new User({
             firstName,
             lastName,
             email,
@@ -66,64 +66,54 @@ router.post( '/register', async ( req, res ) => {
             region,
             city,
             postalCode,
-        } );
+        });
 
         // Save the user to the database
         await newUser.save();
 
-        res.status( 201 ).json( {
+        res.status(201).json({
             message: 'User registered successfully'
-        } );
-    } catch ( error ) {
-        console.error( 'Error registering user:', error );
-        return res.status( 500 ).json( {
+        });
+    } catch (error) {
+        console.error('Error registering user:', error);
+        return res.status(500).json({
             message: 'Internal Server Error. Please try again later.'
-        } );
+        });
     }
-} );
-
+});
 
 // Login route
-router.post( '/login', async ( req, res ) => {
+router.post('/login', async (req, res) => {
     try {
-        const {
-            email,
-            password
-        } = req.body;
+        const { email, password } = req.body;
 
         // Validate incoming data
-        if ( !email || !password ) {
-            console.log( email, password );
-            return res.status( 400 ).json( {
+        if (!email || !password) {
+            console.log(email, password);
+            return res.status(400).json({
                 message: 'Please provide both email and password.'
-            } );
+            });
         }
 
         // Check if the user exists
-        const user = await User.findOne( {
-            email
-        } );
-
-        if ( !user ) {
-            return res.status( 402 ).json( {
+        const user = await User.findOne({ email });
+        if (!user) {
+            return res.status(402).json({
                 message: 'Invalid user'
-            } );
+            });
         }
-
 
         // Compare the password
-        const isMatch = await bcrypt.compare( password, user.password );
-        if ( !isMatch ) {
-            return res.status( 403 ).json( {
+        const isMatch = await bcrypt.compare(password, user.password);
+        if (!isMatch) {
+            return res.status(403).json({
                 message: 'Wrong password'
-            } );
+            });
         }
 
-        // Generate JWT
+        // Generate JWT (if applicable)
 
-
-        //  res.status(200).json({token, message: 'Login successful'});
-        res.json( {
+        res.json({
             message: 'Login successful',
             user: {
                 email: user.email,
@@ -136,34 +126,27 @@ router.post( '/login', async ( req, res ) => {
                 city: user.city,
                 postalCode: user.postalCode
             }
-        } );
-
-
-
-    } catch ( error ) {
-        console.error( 'Error logging in:', error );
-        return res.status( 500 ).json( {
+        });
+    } catch (error) {
+        console.error('Error logging in:', error);
+        return res.status(500).json({
             message: 'Internal Server Error. Please try again later. .. :('
-        } );
+        });
     }
-} );
+});
 
 // Route to get user profile data
-router.get( '/profile', async ( req, res ) => {
-    const {
-        email
-    } = req.query;
+router.get('/profile', async (req, res) => {
+    const { email } = req.query;
     try {
-        const user = await User.findOne( {
-            email
-        } );
-        if ( !user ) {
-            return res.status( 404 ).json( {
+        const user = await User.findOne({ email });
+        if (!user) {
+            return res.status(404).json({
                 message: 'User not found'
-            } );
+            });
         }
 
-        res.json( {
+        res.json({
             email: user.email,
             firstName: user.firstName,
             lastName: user.lastName,
@@ -173,21 +156,17 @@ router.get( '/profile', async ( req, res ) => {
             region: user.region,
             city: user.city,
             postalCode: user.postalCode
-        } );
-
-    } catch ( err ) {
-        console.error( err );
-        res.status( 500 ).json( {
+        });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({
             message: 'Server error'
-        } );
+        });
     }
-} );
+});
 
 // Update user route
-router.put( '/update', async ( req, res ) => {
-    // Example: Update user with req.body data
-    // console.log('Received update request:', req.body);
-
+router.put('/update', async (req, res) => {
     const {
         email,
         firstName,
@@ -204,14 +183,11 @@ router.put( '/update', async ( req, res ) => {
 
     try {
         // Find the user by email
-        const user = await User.findOne( {
-            email
-        } );
-
-        if ( !user ) {
-            return res.status( 404 ).json( {
+        const user = await User.findOne({ email });
+        if (!user) {
+            return res.status(404).json({
                 message: 'User not found'
-            } );
+            });
         }
 
         // Update user fields
@@ -225,54 +201,67 @@ router.put( '/update', async ( req, res ) => {
         user.city = city;
 
         // Check if a new password is provided and update it
-        if ( newpassword ) {
-            const hashedPassword = await bcrypt.hash( newpassword, 12 );
+        if (newpassword) {
+            const hashedPassword = await bcrypt.hash(newpassword, 12);
             user.password = hashedPassword;
         }
 
         // Save the updated user to the database
         await user.save();
 
-        res.json( {
+        res.json({
             message: 'User updated successfully'
-        } );
-    } catch ( error ) {
-        console.error( 'Error updating user:', error );
-        res.status( 500 ).json( {
+        });
+    } catch (error) {
+        console.error('Error updating user:', error);
+        res.status(500).json({
             message: 'Failed to update user'
-        } );
+        });
     }
-} );
-
+});
 
 // Order Routes
-router.post( '/orders', async ( req, res ) => {
+router.post('/orders', async (req, res) => {
     try {
-
-        const order = new Order( req.body );
+        // Save the order to the database
+        const order = new Order(req.body);
         await order.save();
-        res.status( 202 ).json( order );
 
-    } catch ( error ) {
-        res.status( 400 ).json( {
+        // Retrieve the user's email from the order data
+        const userEmail = order.email;
+
+        // Send confirmation email to the user
+        const mailOptions = {
+            from: 'shazamrocks4@gmail.com', // Replace with your email
+            to: userEmail,
+            subject: 'Order Confirmation',
+            text: `Thank you for your purchase! Here are your order details: ${JSON.stringify(order)}`
+        };
+
+        transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+                console.error('Error sending email:', error);
+                return res.status(500).json({ message: 'Error sending email' });
+            }
+            res.status(202).json({ message: 'Order processed and email sent', order });
+        });
+    } catch (error) {
+        res.status(400).json({
             error: error.message
-        } );
+        });
     }
-} );
+});
 
-router.get( '/productsAll', async ( req, res ) => {
+// Route to get all products
+router.get('/productsAll', async (req, res) => {
     try {
-        const user = await Product.find();
-        res.status( 200 ).json( user );
-    } catch ( error ) {
-        res.status( 500 ).json( {
+        const products = await Product.find();
+        res.status(200).json(products);
+    } catch (error) {
+        res.status(500).json({
             error: error.message
-        } );
+        });
     }
-} );
-
-
-
-
+});
 
 export default router;

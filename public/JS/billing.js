@@ -157,6 +157,7 @@ async function handlePlaceOrder(event) {
         }
 
         const orderDetails = getOrderDetails();
+        
 
         const response = await fetch('/api/users/orders',{
             method: 'POST',
