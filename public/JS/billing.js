@@ -157,7 +157,6 @@ async function handlePlaceOrder(event) {
         }
 
         const orderDetails = getOrderDetails();
-        
 
         const response = await fetch('/api/users/orders',{
             method: 'POST',
@@ -173,6 +172,7 @@ async function handlePlaceOrder(event) {
             alert('Thank you for prechesing');
             billingForm.reset();
             localStorage.removeItem('cart');
+            
             // Redirect to a confirmation page or show a success messag
             window.location.href = '/shop'
         }

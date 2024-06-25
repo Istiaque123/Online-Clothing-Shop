@@ -98,7 +98,7 @@ function loadLoginPage() {
             if ( response.ok ) {
                 alert( 'Login successful' );
                 localStorage.setItem('user', JSON.stringify(result.user)); // Store user data in session storage
-                localStorage.removeItem('cart');
+                // localStorage.removeItem('cart');
                 window.location.href = '/account';
             } else {
                 alert( result.message );

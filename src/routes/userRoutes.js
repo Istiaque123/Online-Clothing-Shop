@@ -221,6 +221,7 @@ router.put('/update', async (req, res) => {
 });
 
 // Order Routes
+
 router.post('/orders', async (req, res) => {
     try {
         // Save the order to the database
@@ -230,14 +231,40 @@ router.post('/orders', async (req, res) => {
         // Retrieve the user's email from the order data
         const userEmail = order.email;
 
-        // Send confirmation email to the user
+        // Construct the email message
+        let orderItemsHTML = '';
+        let subtotal = 0;
+
+        order.products.forEach(product => {
+            const productSubtotal = product.price * product.quantity;
+            subtotal += productSubtotal;
+            orderItemsHTML += `
+                <div>
+                    <p>${product.title} -> Quantity: ${product.quantity}</p>
+                    <p>Price: $${product.price.toFixed(2)}</p>
+                    <p>Subtotal: $${productSubtotal.toFixed(2)}</p>
+                </div>
+                <br/>
+            `;
+        });
+
         const mailOptions = {
-            from: 'shazamrocks4@gmail.com', // Replace with your email
+            from: 'your_email@gmail.com', // Replace with your email
             to: userEmail,
             subject: 'Order Confirmation',
-            text: `Thank you for your purchase! Here are your order details: ${JSON.stringify(order)}`
+            html: `
+                <p>Thank you for your purchase!</p>
+                <p>Order ID: ${order.orderId}</p>
+                <p>Delivery Address: ${order.region}, ${order.state}, ${order.streetAddress} - ${order.zipCode}</p>
+                <p>Total Amount: $${subtotal.toFixed(2)}</p>
+                <p>Products:</p>
+                ${orderItemsHTML}
+                <p>Finel Price: $${order.total.toFixed(2)}
+                <p>We appreciate your business. If you have any questions, feel free to contact us.</p>
+            `
         };
 
+        // Send email
         transporter.sendMail(mailOptions, (error, info) => {
             if (error) {
                 console.error('Error sending email:', error);
@@ -246,12 +273,12 @@ router.post('/orders', async (req, res) => {
             res.status(202).json({ message: 'Order processed and email sent', order });
         });
     } catch (error) {
+        console.error('Error processing order:', error);
         res.status(400).json({
             error: error.message
         });
     }
 });
-
 // Route to get all products
 router.get('/productsAll', async (req, res) => {
     try {
