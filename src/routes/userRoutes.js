@@ -291,4 +291,31 @@ router.get('/productsAll', async (req, res) => {
     }
 });
 
+
+
+// Feedback form route
+router.post('/send-feedback', (req, res) => {
+    const { firstname, fEmail, subject } = req.body;
+
+    // Setup email data
+    const mailOptions = {
+        from: fEmail,
+        to: 'your-recipient-email@example.com', // Replace with your recipient email
+        subject: `Feedback from ${firstname}`,
+        text: subject
+    };
+
+    // Send mail with defined transport object
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            console.log(error);
+            return res.status(500).json({ message: 'Error sending email' });
+        } else {
+            console.log('Email sent: ' + info.response);
+            return res.status(200).json({ message: 'Email sent successfully' });
+        }
+    });
+});
+
+
 export default router;

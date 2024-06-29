@@ -96,18 +96,11 @@
             <div class="feedback w-full flex flex-row items-start justify-center gap-10">
 
                 <div class="formFeedBack flex flex-col font-['Montserrat'] w-[40%]">
-                    <form action="#" method="post">
-
-                        <input type="text" id="fname" name="firstname" placeholder="Your name..">
-
-                        <input type="email" id="fEmail" name="fEmail" placeholder="Your Email.....">
-
-                        <textarea id="subject" name="subject" placeholder="Message.." style="height:200px"></textarea>
-
-                        <input type="submit"
-                            class=" border border-black px-5 py-3 hover:bg-black hover:text-white hover:duration-700 hover: ease-out"
-                            value="Send">
-
+                    <form  id="feedbackForm">
+                        <input type="text" id="fname" name="firstname" placeholder="Your name.." required>
+                        <input type="email" id="fEmail" name="fEmail" placeholder="Your Email....." required>
+                        <textarea id="subject" name="subject" placeholder="Message.." style="height:200px" required></textarea>
+                        <input type="submit" class="border border-black px-5 py-3 hover:bg-black hover:text-white hover:duration-700 hover:ease-out" value="Send">
                     </form>
 
 
