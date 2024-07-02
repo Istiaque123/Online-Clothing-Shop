@@ -23,13 +23,13 @@ document.addEventListener( "DOMContentLoaded", () => {
     
         const formData = new FormData(this);
         const data = {
-            firstname: formData.get('firstname'),
-            fEmail: formData.get('fEmail'),
+            clientName: formData.get('clientName'),
+            clientEmail: formData.get('clientEmail'),
             subject: formData.get('subject')
         };
     
         try {
-            const response = await fetch('/api/users/send-feedback', {
+            const response = await fetch('/api/users/contact-us', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -38,14 +38,14 @@ document.addEventListener( "DOMContentLoaded", () => {
             });
     
             if (response.ok) {
-                alert('Thank you for your feedback!');
+                alert('Thank you for We will reach you soon!');
                 this.reset(); // Reset the form
             } else {
-                alert('There was an error sending your feedback. Please try again.');
+                alert('There was an error sending your message. Please try again.');
             }
         } catch (error) {
             console.error('Error:', error);
-            alert('There was an error sending your feedback. Please try again.');
+            alert('There was an error sending your message. Please try again.');
         }
     });
     
