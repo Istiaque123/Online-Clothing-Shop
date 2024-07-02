@@ -17,10 +17,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
     loadNavBarBG();
 
-    // console.log(productInCart);
     loadCheckout();
 });
 
+const stripe = Stripe('pk_test_51PY1URIO92QxP7O2VHKotjqiq37rPrpcanUnDleSskZfskoOdMDUoU7nlfOWhkZ4IB7Oehcveefcw3H8S39Ncfcb00TMrpCS7H'); // Your Stripe publishable key
+const elements = stripe.elements();
+const style = {
+    base: {
+        color: '#32325d',
+        fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+        fontSmoothing: 'antialiased',
+        fontSize: '16px',
+        '::placeholder': {
+            color: '#aab7c4'
+        }
+    },
+    invalid: {
+        color: '#fa755a',
+        iconColor: '#fa755a'
+    }
+};
+
+const card = elements.create('card', { style: style });
 
 function loadCheckout() {
     const parentDiv = document.getElementById('checkoutSection');
@@ -135,19 +153,22 @@ function loadCheckout() {
             <p>$${subtotal.toFixed(2)}</p>
             <div class="sectionDiv w-full border-[1px] border-solid absolute z-10 border-gray-400 top-[3rem]"></div>
         </div>
+        <div id="card-element" class="border-[1px] border-solid border-gray-300 p-3 mt-3 mb-3 w-full">
+            <!-- A Stripe Element will be inserted here. -->
+        </div>
+        <div id="card-errors" role="alert" class="text-red-500 mb-3"></div>
         <button id="placeOrderBtn" class="border-[1px] border-solid border-black mt-[3rem] mb-[3rem] px-[16rem] py-[1.3rem] hover:bg-black hover:border-none hover:text-white hover:duration-300 hover:ease-out font-['Montserrat'] font-semibold leading-relaxed">Place Order</button>`;
 
     parentDiv.appendChild(firstChildDiv);
     parentDiv.appendChild(secondChildDiv);
 
+    card.mount('#card-element');
+
     document.getElementById('placeOrderBtn').addEventListener('click', handlePlaceOrder);
 }
 
 async function handlePlaceOrder(event) {
-
     event.preventDefault();
-
-    
 
     try {
         const billingForm = document.getElementById('billingForm');
@@ -157,36 +178,72 @@ async function handlePlaceOrder(event) {
         }
 
         const orderDetails = getOrderDetails();
+        const total = orderDetails.total;
 
-        const response = await fetch('/api/users/orders',{
+        // Create a payment intent
+        const paymentIntentResponse = await fetch('/api/users/create-payment-intent', {
             method: 'POST',
-            headers:{
-                'Content-Type': 'application/json',
+            headers: {
+                'Content-Type': 'application/json'
             },
-            body: JSON.stringify(orderDetails),
+            body: JSON.stringify({ total, orderDetails })
         });
 
-        if (response.ok) {
-            const order = await response.json();
-            console.log('Order placed:', JSON.stringify(order, null, 2));
-            alert('Thank you for prechesing');
-            billingForm.reset();
-            localStorage.removeItem('cart');
-            
-            // Redirect to a confirmation page or show a success messag
-            window.location.href = '/shop'
-        }
-        else{
-            const error = await response.json();
-            console.error('Error placing order:', error);
-            alert("Error in connection");
+        const { clientSecret } = await paymentIntentResponse.json();
+
+        // Confirm the payment
+        const { error, paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
+            payment_method: {
+                card: card,
+                billing_details: {
+                    name: `${orderDetails.firstName} ${orderDetails.lastName}`,
+                    email: orderDetails.email,
+                    phone: orderDetails.phone,
+                    address: {
+                        line1: orderDetails.streetAddress,
+                        city: orderDetails.region,
+                        state: orderDetails.state,
+                        postal_code: orderDetails.zipCode,
+                    }
+                }
+            }
+        });
+
+        if (error) {
+            const errorElement = document.getElementById('card-errors');
+            errorElement.textContent = error.message;
+            return;
         }
 
+        if (paymentIntent.status === 'succeeded') {
+            // Place the order in the backend
+            const response = await fetch('/api/users/orders', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(orderDetails),
+            });
+
+            if (response.ok) {
+                const order = await response.json();
+                console.log('Order placed:', JSON.stringify(order, null, 2));
+                alert('Thank you for your purchase!');
+                billingForm.reset();
+                localStorage.removeItem('cart');
+
+                // Redirect to a confirmation page or show a success message
+                window.location.href = '/shop';
+            } else {
+                const error = await response.json();
+                console.error('Error placing order:', error);
+                alert("Error in connection");
+            }
+        }
     } catch (error) {
         console.error('Error during handlePlaceOrder:', error);
     }
 }
-
 
 const productInCart = JSON.parse(localStorage.getItem('cart')) || [];
 

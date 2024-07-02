@@ -82,6 +82,7 @@ app.get('/home/admin', (req, res) => { // Protect this route
 
 
 
+
 // Use user routes
 app.use('/api/users', userRoutes);
 

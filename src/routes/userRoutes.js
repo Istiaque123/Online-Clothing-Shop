@@ -4,6 +4,10 @@ import nodemailer from 'nodemailer';
 import User from '../models/userModel.js';
 import Order from '../models/orderModel.js';
 import Product from '../models/productModel.js';
+import Stripe from 'stripe';
+
+const stripe = new Stripe('sk_test_51PY1URIO92QxP7O2uk62ggOgDJIcU1nV3B896GIH2RNFw6xM4Ve4SVTrG7npa8VZy8LxX6C2L6QHNEk2WGopJIfk00hGSBIMJU');
+
 
 const router = express.Router();
 
@@ -315,6 +319,36 @@ router.post('/send-feedback', (req, res) => {
             return res.status(200).json({ message: 'Email sent successfully' });
         }
     });
+});
+
+
+// Create a payment intent
+router.post('/create-payment-intent', async (req, res) => {
+    const { total, orderDetails } = req.body; // Get the total amount and order details from the request body
+
+    try {
+        const paymentIntent = await stripe.paymentIntents.create({
+            amount: total * 100, // Convert to cents
+            currency: 'usd',
+            metadata: {
+                firstName: orderDetails.firstName,
+                lastName: orderDetails.lastName,
+                email: orderDetails.email,
+                phone: orderDetails.phone,
+                region: orderDetails.region,
+                streetAddress: orderDetails.streetAddress,
+                state: orderDetails.state,
+                zipCode: orderDetails.zipCode,
+                additionalNotes: orderDetails.additionalNotes,
+                products: JSON.stringify(orderDetails.products),
+            }
+        });
+        res.send({
+            clientSecret: paymentIntent.client_secret,
+        });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
 });
 
 
