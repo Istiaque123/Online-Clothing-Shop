@@ -20,8 +20,12 @@ document.addEventListener("DOMContentLoaded", () => {
     loadCheckout();
 });
 
-const stripe = Stripe('pk_test_51PY1URIO92QxP7O2VHKotjqiq37rPrpcanUnDleSskZfskoOdMDUoU7nlfOWhkZ4IB7Oehcveefcw3H8S39Ncfcb00TMrpCS7H'); // Your Stripe publishable key
+
+// Your Stripe publishable key
+const stripe = Stripe('pk_test_51PY1URIO92QxP7O2VHKotjqiq37rPrpcanUnDleSskZfskoOdMDUoU7nlfOWhkZ4IB7Oehcveefcw3H8S39Ncfcb00TMrpCS7H'); 
 const elements = stripe.elements();
+
+// Style for payment card section
 const style = {
     base: {
         color: '#32325d',
@@ -38,6 +42,7 @@ const style = {
     }
 };
 
+// Card Element Create
 const card = elements.create('card', { style: style });
 
 function loadCheckout() {
@@ -167,6 +172,7 @@ function loadCheckout() {
     document.getElementById('placeOrderBtn').addEventListener('click', handlePlaceOrder);
 }
 
+// Modified handler For payment Getway
 async function handlePlaceOrder(event) {
     event.preventDefault();
 

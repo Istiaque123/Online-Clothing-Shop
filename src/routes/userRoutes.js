@@ -322,13 +322,13 @@ router.post('/send-feedback', (req, res) => {
 });
 
 
-// Create a payment intent
+// Create a payment getway  intent
 router.post('/create-payment-intent', async (req, res) => {
     const { total, orderDetails } = req.body; // Get the total amount and order details from the request body
 
     try {
         const paymentIntent = await stripe.paymentIntents.create({
-            amount: total * 100, // Convert to cents
+            amount: total * 100, // Convert to cents (it shows erro if we don't convert in cents)
             currency: 'usd',
             metadata: {
                 firstName: orderDetails.firstName,
