@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // Your Stripe publishable key
-const stripe = Stripe('pk_test_51PY1URIO92QxP7O2VHKotjqiq37rPrpcanUnDleSskZfskoOdMDUoU7nlfOWhkZ4IB7Oehcveefcw3H8S39Ncfcb00TMrpCS7H'); 
+const stripe = Stripe('Your Stripe Publishable Key'); 
 const elements = stripe.elements();
 
 // Style for payment card section
