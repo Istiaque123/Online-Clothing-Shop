@@ -5,9 +5,12 @@ import User from '../models/userModel.js';
 import Order from '../models/orderModel.js';
 import Product from '../models/productModel.js';
 import Stripe from 'stripe';
+import dotenv from 'dotenv'; // Import dotenv for environment variables
 
-// Add Your Stripe secrate key
-const stripe = new Stripe('Your Stripe Secrate Key');
+dotenv.config(); // Load environment variables
+
+
+const stripe = new Stripe(process.env.STRIPE_SECRATE_KEY);
 
 
 const router = express.Router();
@@ -19,8 +22,8 @@ router.use(express.json());
 const transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
-        user: 'Your Email', // Your email
-        pass: 'Less Apps Key '  // App password generated in Google Account or your regular password if "Allow less secure apps" is on
+        user: process.env.EMAIL_USER, // Your email
+        pass: process.env.EMAIL_PASS  // App password generated in Google Account or your regular password if "Allow less secure apps" is on
     }
 });
 
@@ -298,17 +301,20 @@ router.get('/productsAll', async (req, res) => {
 
 
 
-// Feedback form route
-router.post('/send-feedback', (req, res) => {
-    const { firstname, fEmail, subject } = req.body;
+// contact-us form route
+router.post('/contact-us', (req, res) => {
+    const { clientName, clientEmail, subject } = req.body;
 
     // Setup email data
     const mailOptions = {
-        from: fEmail,
-        to: 'your-recipient-email@example.com', // Replace with your recipient email
-        subject: `Feedback from ${firstname}`,
-        text: subject
+        from: `"${clientName}" <shazamrocks4@gmail.com'}>`,
+        replyTo: clientEmail,
+        to: 'shazamrocks4@gmail.com',
+        subject: `Contact from ${clientName}`,
+        text: `From: ${clientEmail}\n\n${subject}`
     };
+
+
 
     // Send mail with defined transport object
     transporter.sendMail(mailOptions, (error, info) => {
