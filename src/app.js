@@ -76,6 +76,9 @@ app.get('/account', (req, res) => { // Protect this route
 app.get('/checkout', (req, res) => { // Protect this route
     res.sendFile(path.join(__dirname, '../public', 'biling.html'));
 });
+app.get('/home/admin', (req, res) => { // Protect this route
+    res.sendFile(path.join(__dirname, '../public', 'adminHome.html'));
+});
 
 
 
