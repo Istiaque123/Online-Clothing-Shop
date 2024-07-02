@@ -6,7 +6,8 @@ import Order from '../models/orderModel.js';
 import Product from '../models/productModel.js';
 import Stripe from 'stripe';
 
-const stripe = new Stripe('sk_test_51PY1URIO92QxP7O2uk62ggOgDJIcU1nV3B896GIH2RNFw6xM4Ve4SVTrG7npa8VZy8LxX6C2L6QHNEk2WGopJIfk00hGSBIMJU');
+// Add Your Stripe secrate key
+const stripe = new Stripe('Your Stripe Secrate Key');
 
 
 const router = express.Router();
@@ -18,8 +19,8 @@ router.use(express.json());
 const transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
-        user: 'shazamrocks4@gmail.com', // Your email
-        pass: 'smkz wyki gcmc egiv'  // App password generated in Google Account or your regular password if "Allow less secure apps" is on
+        user: 'Your Email', // Your email
+        pass: 'Less Apps Key '  // App password generated in Google Account or your regular password if "Allow less secure apps" is on
     }
 });
 
