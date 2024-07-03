@@ -335,7 +335,7 @@ router.post('/create-payment-intent', async (req, res) => {
 
     try {
         const paymentIntent = await stripe.paymentIntents.create({
-            amount: total * 100, // Convert to cents (it shows erro if we don't convert in cents)
+            amount: Math.floor(total), // Convert to cents (it shows erro if we don't convert in cents)
             currency: 'usd',
             metadata: {
                 firstName: orderDetails.firstName,
