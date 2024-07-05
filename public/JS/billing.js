@@ -120,66 +120,79 @@ function loadCheckout() {
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Notes about your order, e.g. special notes for delivery"></textarea>
         </div>`;
 
-    const secondChildDiv = document.createElement('div');
-    secondChildDiv.classList.add("price_section", "w-[54rem]", "min-h-[20rem]", "flex", "flex-col", "items-center", "justify-center", "p-[3rem]", "border-[1px]", "border-solid", "border-gray-300", "box-border", "font-['Montserrat']");
-
-    let orderItemsHTML = '';
-    let subtotal = 0;
-    productInCart.forEach(product => {
-        const productSubtotal = product.price * product.quantity;
-        subtotal += productSubtotal;
-        const color = product.color ? product.color.split('-')[0] : '';
-        const size = product.size || '';
-        orderItemsHTML += `
-            <div class="product_info font-semibold text-gray-400 flex flex-row w-full items-center justify-between relative mt-[2rem]">
-                <p>${product.title} -> ${color ? ` ${color.toUpperCase()}` : ''} ${size ? `(${size})` : ''} (Q: ${product.quantity})</p>
-                <p>$${productSubtotal.toFixed(2)}</p>
+        const secondChildDiv = document.createElement('div');
+        secondChildDiv.classList.add("price_section", "w-[54rem]", "min-h-[20rem]", "flex", "flex-col", "items-center", "justify-center", "p-[3rem]", "border-[1px]", "border-solid", "border-gray-300", "box-border", "font-['Montserrat']");
+    
+        let orderItemsHTML = '';
+        let subtotal = 0;
+        productInCart.forEach(product => {
+            const productSubtotal = product.price * product.quantity;
+            subtotal += productSubtotal;
+            const color = product.color ? product.color.split('-')[0] : '';
+            const size = product.size || '';
+            orderItemsHTML += `
+                <div class="product_info font-semibold text-gray-400 flex flex-row w-full items-center justify-between relative mt-[2rem]">
+                    <p>${product.title} -> ${color ? ` ${color.toUpperCase()}` : ''} ${size ? `(${size})` : ''} (Q: ${product.quantity})</p>
+                    <p>$${productSubtotal.toFixed(2)}</p>
+                    <div class="sectionDiv w-full border-[1px] border-solid absolute z-10 border-gray-400 top-[3rem]"></div>
+                </div>`;
+        });
+    
+        secondChildDiv.innerHTML = `
+            <div class="heading flex items-center justify-start flex-row w-full h-[9rem]">
+                <h1 class="font-[Cormorant-Garamond] font-semibold italic">Your Order</h1>
+            </div>
+            <div class="product_info_heading font-semibold text-gray-400 flex flex-row w-full items-center justify-between relative mt-[1rem]">
+                <p>Product</p>
+                <p>Subtotal</p>
                 <div class="sectionDiv w-full border-[1px] border-solid absolute z-10 border-gray-400 top-[3rem]"></div>
+            </div>
+            ${orderItemsHTML}
+            <div class="product_info_subtotal font-semibold text-gray-400 flex flex-row w-full items-center justify-between relative mt-[2rem]">
+                <p>Subtotal</p>
+                <p>$${subtotal.toFixed(2)}</p>
+                <div class="sectionDiv w-full border-[1px] border-solid absolute z-10 border-gray-400 top-[3rem]"></div>
+            </div>
+            <div class="product_info font-semibold text-gray-400 flex flex-row w-full items-center justify-between relative mt-[2rem]">
+                <p>Total</p>
+                <p>$${subtotal.toFixed(2)}</p>
+                <div class="sectionDiv w-full border-[1px] border-solid absolute z-10 border-gray-400 top-[3rem]"></div>
+            </div>
+            <div id="card-element" class="border-[1px] border-solid border-gray-300 p-3 mt-3 mb-3 w-full">
+                <!-- A Stripe Element will be inserted here. -->
+            </div>
+            <div id="card-errors" role="alert" class="text-red-500 mb-3"></div>
+            <button id="placeOrderBtn" class="border-[1px] border-solid border-black mt-[3rem] mb-[3rem] px-[16rem] py-[1.3rem] hover:bg-black hover:border-none hover:text-white hover:duration-300 hover:ease-out font-['Montserrat'] font-semibold leading-relaxed">Place Order</button>
+
+            <div id="loadingSpinner" class="spinner-border text-secondary" role="status" style="display: none;">
+                <span class="visually-hidden">Loading...</span>
             </div>`;
-    });
-
-    secondChildDiv.innerHTML = `
-        <div class="heading flex items-center justify-start flex-row w-full h-[9rem]">
-            <h1 class="font-[Cormorant-Garamond] font-semibold italic">Your Order</h1>
-        </div>
-        <div class="product_info_heading font-semibold text-gray-400 flex flex-row w-full items-center justify-between relative mt-[1rem]">
-            <p>Product</p>
-            <p>Subtotal</p>
-            <div class="sectionDiv w-full border-[1px] border-solid absolute z-10 border-gray-400 top-[3rem]"></div>
-        </div>
-        ${orderItemsHTML}
-        <div class="product_info_subtotal font-semibold text-gray-400 flex flex-row w-full items-center justify-between relative mt-[2rem]">
-            <p>Subtotal</p>
-            <p>$${subtotal.toFixed(2)}</p>
-            <div class="sectionDiv w-full border-[1px] border-solid absolute z-10 border-gray-400 top-[3rem]"></div>
-        </div>
-        <div class="product_info font-semibold text-gray-400 flex flex-row w-full items-center justify-between relative mt-[2rem]">
-            <p>Total</p>
-            <p>$${subtotal.toFixed(2)}</p>
-            <div class="sectionDiv w-full border-[1px] border-solid absolute z-10 border-gray-400 top-[3rem]"></div>
-        </div>
-        <div id="card-element" class="border-[1px] border-solid border-gray-300 p-3 mt-3 mb-3 w-full">
-            <!-- A Stripe Element will be inserted here. -->
-        </div>
-        <div id="card-errors" role="alert" class="text-red-500 mb-3"></div>
-        <button id="placeOrderBtn" class="border-[1px] border-solid border-black mt-[3rem] mb-[3rem] px-[16rem] py-[1.3rem] hover:bg-black hover:border-none hover:text-white hover:duration-300 hover:ease-out font-['Montserrat'] font-semibold leading-relaxed">Place Order</button>`;
-
-    parentDiv.appendChild(firstChildDiv);
-    parentDiv.appendChild(secondChildDiv);
-
-    card.mount('#card-element');
-
-    document.getElementById('placeOrderBtn').addEventListener('click', handlePlaceOrder);
+    
+        parentDiv.appendChild(firstChildDiv);
+        parentDiv.appendChild(secondChildDiv);
+    
+        card.mount('#card-element');
+    
+        document.getElementById('placeOrderBtn').addEventListener('click', handlePlaceOrder);
+    
 }
 
 // Modified handler For payment Getway
 async function handlePlaceOrder(event) {
     event.preventDefault();
 
+    const placeOrderBtn = document.getElementById('placeOrderBtn');
+    const loadingSpinner = document.getElementById('loadingSpinner');
+
+    placeOrderBtn.disabled = true;
+    loadingSpinner.style.display = 'block';
+
     try {
         const billingForm = document.getElementById('billingForm');
         if (!billingForm.checkValidity()) {
             billingForm.reportValidity();
+            placeOrderBtn.disabled = false;
+            loadingSpinner.style.display = 'none';
             return;
         }
 
@@ -218,6 +231,8 @@ async function handlePlaceOrder(event) {
         if (error) {
             const errorElement = document.getElementById('card-errors');
             errorElement.textContent = error.message;
+            placeOrderBtn.disabled = false;
+            loadingSpinner.style.display = 'none';
             return;
         }
 
@@ -248,6 +263,9 @@ async function handlePlaceOrder(event) {
         }
     } catch (error) {
         console.error('Error during handlePlaceOrder:', error);
+    } finally {
+        placeOrderBtn.disabled = false;
+        loadingSpinner.style.display = 'none';
     }
 }
 

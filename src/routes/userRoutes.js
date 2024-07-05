@@ -359,4 +359,57 @@ router.post('/create-payment-intent', async (req, res) => {
 });
 
 
+
+// Product review Section
+router.post('/products/:productId/reviews', async (req, res) => {
+    try {
+        const productId = Number.parseInt(req.params.productId);
+        const product = await Product.findOne({ id: productId });
+
+        if (!product) {
+            return res.status(404).send({ message: 'Product not found' });
+        }
+
+        const { name, text, rating } = req.body;
+
+        // Validate and parse rating
+        const parsedRating = parseFloat(rating);
+
+        if (isNaN(parsedRating) || parsedRating < 1 || parsedRating > 5) {
+            return res.status(400).send({ message: 'Invalid rating value. Rating must be a number between 1 and 5.' });
+        }
+
+        // Create a new review object
+        const review = {
+            name,
+            text,
+            rating: parsedRating,
+            date: new Date() // Optionally, set the date of the review creation
+        };
+
+        // Push the review into the product's reviews array
+        product.reviews.push(review);
+
+
+        // Update rating
+        if ( product.reviews.length > 0 ) {
+            const totalRating = product.reviews.reduce( ( sum, val ) => sum + val.rating, 0 );
+            product.rating = Math.max(product.rating, totalRating / product.reviews.length);
+        }
+        
+
+        // Save the product (including the newly added review)
+        await product.save();
+
+        product.updateRating();
+
+        // Respond with the updated product object
+        res.status(201).send(product);
+    } catch (error) {
+        console.error(error); // Log the error for debugging
+        res.status(500).send({ message: 'Internal Server Error' });
+    }
+});
+
+
 export default router;

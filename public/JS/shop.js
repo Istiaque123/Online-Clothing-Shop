@@ -28,7 +28,7 @@ async function fetchProducts() {
             date: product.date,
             dress_sizes: product.dress_sizes,
             dress_colors: product.dress_colors,
-            reviews: {}
+            reviews: [] || product.reviews
         }));
 
         return productsWithoutId;

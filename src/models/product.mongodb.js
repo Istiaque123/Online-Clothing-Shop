@@ -167,3 +167,5 @@ db.createCollection('products');
 //         }
 //     ]
 // );
+
+db.products.updateMany({ reviews: {} }, { $set: { reviews: [] } });

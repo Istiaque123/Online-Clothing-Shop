@@ -10,7 +10,7 @@ import {
 
 async function fetchProducts() {
     try {
-        const response = await fetch( 'http://localhost:3000/api/users/productsAll' );
+        const response = await fetch( '/api/users/productsAll' );
         if ( !response.ok ) {
             throw new Error( 'Network response was not ok' );
         }
@@ -18,7 +18,7 @@ async function fetchProducts() {
 
         const productsWithoutId = products.map( ( product, index ) => ( {
             imgSrc: product.imgSrc,
-            id: index,
+            id: product.id,
             category: product.category,
             title: product.title,
             price: product.price,
@@ -27,8 +27,11 @@ async function fetchProducts() {
             date: product.date,
             dress_sizes: product.dress_sizes,
             dress_colors: product.dress_colors,
-            reviews: {}
+            reviews: product.reviews || []
         } ) );
+
+       
+
 
         return productsWithoutId;
 
@@ -56,6 +59,8 @@ function initProductPage( cardsData ) {
     const productId = Number.parseInt( getProductIdFromUrl() );
     const product = cardsData.find( product => product.id === productId );
     if ( product ) {
+
+        
         renderProduct( product );
     }
 }
@@ -75,26 +80,36 @@ document.addEventListener( 'DOMContentLoaded', async () => {
 
     if ( productContainer ) {
 
+        document.getElementById( 'nav-description-tab' ).addEventListener( 'click', () => {
+            productContainer.classList.remove( 'h-[130rem]' );
+            productContainer.classList.add( 'h-[90rem]' );
 
-        document.getElementById( "reviews" ).addEventListener( 'click', () => {
+
+        } )
+        document.getElementById( 'nav-information-tab' ).addEventListener( 'click', () => {
+            productContainer.classList.remove( 'h-[130rem]' );
+            productContainer.classList.add( 'h-[90rem]' );
+
+        } )
+
+
+        document.getElementById( "nav-reviews-tab" ).addEventListener( 'click', () => {
             productContainer.classList.remove( 'h-[90rem]' );
             productContainer.classList.add( 'h-[130rem]' );
 
+
         } );
 
-        document.getElementById( 'descritption' ).addEventListener( 'click', () => {
-            productContainer.classList.remove( 'h-[130rem]' );
-            productContainer.classList.add( 'h-[90rem]' );
-        } )
-        document.getElementById( 'adition_info' ).addEventListener( 'click', () => {
-            productContainer.classList.remove( 'h-[130rem]' );
-            productContainer.classList.add( 'h-[90rem]' );
-        } )
-
+        
     }
 
+    
 
 } );
+
+
+
+
 // Function to render a single product based on its ID
 function renderProduct( product ) {
 
@@ -112,7 +127,25 @@ function renderProduct( product ) {
     // Creating div
     const mainDiv = document.createElement( 'div' );
     mainDiv.classList.add( `product_Section`, `flex`, `w-[80rem]`, `min-h-full`, `mt-[5rem]`, `flex-col`, `relative`, `space-y-16`, `items-center`, `justify-start` );
+    
     mainDiv.setAttribute( "id", "product_Section" );
+
+     // Generate HTML for reviews section
+     const reviewsHtml = product.reviews.length > 0 ?
+     
+     product.reviews.map(review =>
+
+         `<div class="customer_review flex flex-row items-center mb-4 border-[1px] border-solid border-gray-300 p-[2rem] font-['Playfair-Display'] italic ">
+             <div class="flex-shrink-0 ">
+                 <span class="material-symbols-outlined text-7xl">account_circle</span>
+             </div>
+             <div class="ml-3">
+                 <p class="font-semibold text-xl text-gray-600">${review.name}: ( ${grade(review.rating)} )</p>
+                 <p class="text-gray-600">${review.text}</p>
+             </div>
+         </div>`
+     ).join('') :
+     '<p>No Reviews Yet</p>';
 
     mainDiv.innerHTML = `
 
@@ -188,11 +221,11 @@ function renderProduct( product ) {
         <nav>
             <div class="nav nav-tabs font-['Montserrat'] font-semibold text-black text-lg" id="nav-tab" role="tablist">
                 
-            <button id="descritption" class="nav-link active text-black" id="nav-description-tab" data-bs-toggle="tab" data-bs-target="#nav-description" type="button" role="tab" aria-controls="nav-description" aria-selected="true">Description</button>
+            <button  class="nav-link active text-black" id="nav-description-tab" data-bs-toggle="tab" data-bs-target="#nav-description" type="button" role="tab" aria-controls="nav-description" aria-selected="true">Description</button>
                 
-            <button id="adition_info" class="nav-link text-black" id="nav-information-tab" data-bs-toggle="tab" data-bs-target="#nav-information" type="button" role="tab" aria-controls="nav-information" aria-selected="false">Additional information</button>
+            <button class="nav-link text-black" id="nav-information-tab" data-bs-toggle="tab" data-bs-target="#nav-information" type="button" role="tab" aria-controls="nav-information" aria-selected="false">Additional information</button>
                 
-            <button id="reviews" class="nav-link text-black" id="nav-reviews-tab" data-bs-toggle="tab" data-bs-target="#nav-reviews" type="button" role="tab" aria-controls="nav-reviews" aria-selected="false">Reviews (${product.reviews.size || 0})</button>
+            <button class="nav-link text-black" id="nav-reviews-tab" data-bs-toggle="tab" data-bs-target="#nav-reviews" type="button" role="tab" aria-controls="nav-reviews" aria-selected="false">Reviews (${product.reviews.length || 0})</button>
             </div>
         </nav>
 
@@ -225,10 +258,10 @@ function renderProduct( product ) {
 
                 <!-- display users review -->
                         <div
-                            class="customers_review w-full max-h-[30rem] min-h-[5rem] mt-[1rem] flex flex-col overflow-scroll">
+                            id= "customers_review" class="customers_review w-full min-h-[9rem] mt-[2rem] flex flex-col p-2">
 
 
-                            <p>No Review Yet</p>
+                            ${reviewsHtml}
 
                         </div>
 
@@ -238,12 +271,14 @@ function renderProduct( product ) {
                             <h4 class=" text-gray-500">Please Share your review with us</h4>
                             <p class=" text-gray-500">Your email address will not be published. Required fields are marked *</p>
 
-                            <form name="feedback_form" id="feedback_form" method="post" class=" text-black font-medium text-lg">
+                            <form name="feedback_form" id="feedback_form"  class=" text-black font-medium text-lg">
+
                                 <label>How do you rate your overall experience?</label>
+
                                 <div class="mb-3 d-flex flex-row py-1">
                                     <div class="form-check mr-3">
                                         <input class="form-check-input" type="radio" name="rating" id="rating_bad"
-                                            value="bad" required class="form-control">
+                                            value="0" required class="form-control">
                                         <label class="form-check-label" for="rating_bad">
                                             Bad
                                         </label>
@@ -251,7 +286,7 @@ function renderProduct( product ) {
 
                                     <div class="form-check mx-3">
                                         <input class="form-check-input" type="radio" name="rating" id="rating_good"
-                                            value="good" required class="form-control">
+                                            value="3" required class="form-control">
                                         <label class="form-check-label" for="rating_good">
                                             Good
                                         </label>
@@ -259,7 +294,7 @@ function renderProduct( product ) {
 
                                     <div class="form-check mx-3">
                                         <input class="form-check-input" type="radio" name="rating"
-                                            id="rating_excellent" value="excellent" required class="form-control">
+                                            id="rating_excellent" value="5" required class="form-control">
                                         <label class="form-check-label" for="rating_excellent">
                                             Excellent!
                                         </label>
@@ -294,6 +329,8 @@ function renderProduct( product ) {
     </div>
     `;
 
+
+    
 
 
     productContainer.appendChild( mainDiv );
@@ -402,4 +439,70 @@ function renderProduct( product ) {
             colorElem.classList.add( 'border-black' );
         } );
     } );
+
+
+
+
+    document.getElementById('feedback_form').addEventListener('submit', async (event) => {
+        event.preventDefault();
+    
+        const reviewerName = document.getElementById('feedback_name').value;
+        const reviewText = document.getElementById('feedback_comments').value;
+        const rating = document.querySelector('input[name="rating"]:checked').value;
+
+        console.log(rating);
+        if (reviewerName && reviewText && rating) {
+            const productId = getProductIdFromUrl(); // Implement this function to get the product ID from the URL
+            const formData = {
+                name: reviewerName,
+                text: reviewText,
+                rating: rating
+            };
+    
+            try {
+                const response = await fetch(`/api/users/products/${productId}/reviews`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+    
+                if (!response.ok) {
+                    alert('Failed to submit review')
+                    // throw new Error('Failed to submit review');
+                }
+    
+                const updatedProduct = await response.json();
+                console.log('Review submitted successfully:', updatedProduct);
+    
+                // Optionally update the UI with the new review
+                // For example, you could append the new review to the list of reviews displayed on the page
+    
+                // Clear form fields
+                document.getElementById('feedback_name').value = '';
+                document.getElementById('feedback_comments').value = '';
+                document.getElementById('feedback_email').value = '';
+                document.querySelector('input[name="rating"]:checked').checked = false;
+
+                window.location.reload();
+            } catch (error) {
+                console.error('Error submitting review:', error);
+                // Handle error gracefully (e.g., show error message to user)
+            }
+        }
+    });
+    
+
+}
+
+function grade(rating) {
+    if (rating == 5) {
+        return 'Excellent';
+    }else if (rating == 3) {
+        return 'Good';
+    }
+    else {
+        return 'Bad';
+    }
 }
