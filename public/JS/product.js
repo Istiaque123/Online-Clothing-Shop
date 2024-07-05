@@ -81,24 +81,27 @@ document.addEventListener( 'DOMContentLoaded', async () => {
     if ( productContainer ) {
 
         document.getElementById( 'nav-description-tab' ).addEventListener( 'click', () => {
-            productContainer.classList.remove( 'h-[130rem]' );
-            productContainer.classList.add( 'h-[90rem]' );
+            productContainer.classList.remove( 'min-h-[130rem]' );
+            productContainer.classList.add( 'min-90rem]', 'mb-[10rem]' );
+
 
 
         } )
         document.getElementById( 'nav-information-tab' ).addEventListener( 'click', () => {
-            productContainer.classList.remove( 'h-[130rem]' );
-            productContainer.classList.add( 'h-[90rem]' );
+            productContainer.classList.remove( 'min-h-[130rem]' );
+            productContainer.classList.add( 'min-h-[90rem]', 'mb-[10rem]' );
+
 
         } )
 
 
         document.getElementById( "nav-reviews-tab" ).addEventListener( 'click', () => {
-            productContainer.classList.remove( 'h-[90rem]' );
-            productContainer.classList.add( 'h-[130rem]' );
-
-
+            productContainer.classList.remove( 'min-h-[90rem]' );
+            productContainer.classList.add( 'min-h-[130rem]', 'mb-[10rem]' );
+            
+            
         } );
+        
 
         
     }
@@ -126,7 +129,7 @@ function renderProduct( product ) {
     productContainer.innerHTML = '';
     // Creating div
     const mainDiv = document.createElement( 'div' );
-    mainDiv.classList.add( `product_Section`, `flex`, `w-[80rem]`, `min-h-full`, `mt-[5rem]`, `flex-col`, `relative`, `space-y-16`, `items-center`, `justify-start` );
+    mainDiv.classList.add( `product_Section`, `flex`, `w-[80rem]`, `min-h-full`, `mt-[5rem]`, `flex-col`, `relative`, `space-y-16`, `items-center`, `justify-start`, `relative`);
     
     mainDiv.setAttribute( "id", "product_Section" );
 
@@ -149,7 +152,7 @@ function renderProduct( product ) {
 
     mainDiv.innerHTML = `
 
-        <div id="liveAlertPlaceholder" class=" w-full"></div>
+        <div id="liveAlertPlaceholder" class=" w-full "></div>
 
     <!-- 1st Section -->
     <div class="first_section flex flex-row gap-5 items-start justify-center relative">
@@ -159,13 +162,13 @@ function renderProduct( product ) {
         </div>
 
         <div class="product_info flex flex-col w-[40rem] space-y-5">
-            <p class="font-['Montserrat'] font-bold">${product.category}</p>
+            <p class="font-['Montserrat'] font-bold text-xl">${product.category}</p>
 
-            <p class="font-[Cormorant-Garamond] font-medium text-xl tracking-wide">${product.title}</p>
+            <p class="font-[Cormorant-Garamond] font-semibold text-lg text-gray-600 tracking-wide">${product.title}</p>
 
             <p id="dis_price" class="dis_price font-['Montserrat'] font-bold text-xl tracking-wide">$${product.price}</p>
 
-            <p class="font-['Montserrat'] text-gray-00 tracking-wide">Free Shipping</p>
+            <p class="font-['Montserrat'] text-gray-600 tracking-wide">Free Shipping</p>
 
             <p class="font-['Montserrat'] text-gray-600 tracking-wide leading-relaxed">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem accusantium ullam recusandae excepturi vel maiores tempore earum culpa laboriosam ab veritatis illo natus, dicta rerum delectus, repellat nisi reprehenderit illum.</p>
 
@@ -217,7 +220,7 @@ function renderProduct( product ) {
     </div>
 
     <!-- 2nd Section -->
-    <div class="review_section w-full">
+    <div class="review_section w-full relative flex flex-col h-full">
         <nav>
             <div class="nav nav-tabs font-['Montserrat'] font-semibold text-black text-lg" id="nav-tab" role="tablist">
                 
@@ -253,7 +256,7 @@ function renderProduct( product ) {
                     </tr>
                 </table>
             </div>
-            <div class="tab-pane fade" id="nav-reviews" role="tabpanel" aria-labelledby="nav-reviews-tab" tabindex="0">
+            <div class="tab-pane fade " id="nav-reviews" role="tabpanel" aria-labelledby="nav-reviews-tab" tabindex="0">
                 <!-- Review contents go here -->
 
                 <!-- display users review -->
@@ -266,12 +269,12 @@ function renderProduct( product ) {
                         </div>
 
                         <!-- submit user review -->
-                        <div class="feedback_div w-full h-[55rem] border-[1px] border-solid border-gray-300 flex flex-col p-[2rem] box-border relative gap-6 ">
+                        <div class="feedback_div w-full min-h-[55rem] border-[1px] border-solid border-gray-300 flex flex-col p-[2rem] box-border relative gap-6 ">
 
                             <h4 class=" text-gray-500">Please Share your review with us</h4>
                             <p class=" text-gray-500">Your email address will not be published. Required fields are marked *</p>
 
-                            <form name="feedback_form" id="feedback_form"  class=" text-black font-medium text-lg">
+                            <form name="feedback_form" id="feedback_form"  class=" text-black font-medium text-lg mb-[10rem]">
 
                                 <label>How do you rate your overall experience?</label>
 
@@ -319,7 +322,7 @@ function renderProduct( product ) {
                                     </div>
                                 </div>
                                 <button id="submit" type="submit"
-                                    class=" border-[1px] border-solid border-black px-[3rem] py-[1rem]  hover:bg-black hover:border-none hover:text-white hover:duration-300 hover: ease-out">Submit</button>
+                                    class=" border-[1px] border-solid border-black px-[3rem] py-[1rem]  hover:bg-black hover:border-none hover:text-white hover:duration-300 hover: ease-out ">Submit</button>
                             </form>
 
                         </div>
@@ -470,7 +473,7 @@ function renderProduct( product ) {
     
                 if (!response.ok) {
                     alert('Failed to submit review')
-                    // throw new Error('Failed to submit review');
+                    throw new Error('Failed to submit review');
                 }
     
                 const updatedProduct = await response.json();

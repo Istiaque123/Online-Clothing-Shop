@@ -392,16 +392,13 @@ router.post('/products/:productId/reviews', async (req, res) => {
 
 
         // Update rating
-        if ( product.reviews.length > 0 ) {
-            const totalRating = product.reviews.reduce( ( sum, val ) => sum + val.rating, 0 );
-            product.rating = Math.max(product.rating, totalRating / product.reviews.length);
-        }
+        product.rating += (review.rating / 2);
+        product.popularity += 1;
         
 
         // Save the product (including the newly added review)
         await product.save();
 
-        product.updateRating();
 
         // Respond with the updated product object
         res.status(201).send(product);
