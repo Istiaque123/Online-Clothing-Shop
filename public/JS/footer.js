@@ -2,7 +2,7 @@ export function loadFooter() {
     const footerPlaceholder = document.getElementById("footer-placeholder");
 
     if (footerPlaceholder) {
-        return fetch("http://localhost:3000/footer.html")
+        return fetch("/myfooter")
             .then((response) => response.text())
             .then((html) => {
                 footerPlaceholder.innerHTML = html;

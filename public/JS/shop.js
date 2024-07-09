@@ -11,7 +11,7 @@ import {
 
 async function fetchProducts() {
     try {
-        const response = await fetch('http://localhost:3000/api/users/productsAll');
+        const response = await fetch('/api/users/productsAll');
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }

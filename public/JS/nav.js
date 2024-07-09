@@ -2,7 +2,7 @@ export function loadNavBarNoBG() {
     const navPlaceholder = document.getElementById( "nav_no_bg_placeholder" );
 
     if ( navPlaceholder ) {
-        fetch( "http://localhost:3000/nav_no_bg.html" )
+        fetch( '/my_nev' )
             .then( ( response ) => response.text() )
             .then( ( html ) => {
                 navPlaceholder.innerHTML = html;
@@ -18,7 +18,7 @@ export function loadNavBarBG() {
     const navPlaceholder = document.getElementById( "nav_bg_placeholder" );
 
     if ( navPlaceholder ) {
-        fetch( "http://localhost:3000/nav_bg.html" )
+        fetch( '/my_nev_bg' )
             .then( ( response ) => response.text() )
             .then( ( html ) => {
                 navPlaceholder.innerHTML = html;

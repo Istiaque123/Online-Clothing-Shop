@@ -68,6 +68,15 @@ app.get('/cart', (req, res) => {
 app.get('/logReg', (req, res) => {
     res.sendFile(path.join(__dirname, '../public', 'log_reg.html'));
 });
+app.get('/myfooter', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public', 'footer.html'));
+});
+app.get('/my_nev_bg', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public', 'nav_bg.html'));
+});
+app.get('/my_nev', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public', 'nav_no_bg.html'));
+});
 
 
 app.get('/account', (req, res) => { // Protect this route
