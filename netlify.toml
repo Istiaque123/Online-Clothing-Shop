@@ -1,5 +1,6 @@
 [build]
-  publish = "public"
+  command = "npm start"
+  publish = "/opt/build/repo/public"
 
 [[redirects]]
   from = "/*"
