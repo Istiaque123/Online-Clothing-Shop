@@ -37,10 +37,10 @@ app.use('/src', express.static(path.join(__dirname, '../src')));
 
 // Define routes for serving HTML files
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public', 'home.html'));
+    res.sendFile(path.join(__dirname, '../public', 'index.html'));
 });
 app.get('/home', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public', 'home.html'));
+    res.sendFile(path.join(__dirname, '../public', 'index.html'));
 });
 
 app.get('/shop', (req, res) => {
