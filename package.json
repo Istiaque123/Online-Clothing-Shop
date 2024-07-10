@@ -27,6 +27,7 @@
     "mongoose": "^8.4.3",
     "nanoid": "^5.0.7",
     "nodemailer": "^6.9.14",
-    "stripe": "^16.1.0"
+    "stripe": "^16.1.0" 
+    
   }
 }
