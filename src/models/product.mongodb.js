@@ -149,4 +149,20 @@ db.createCollection('products');
 // );
 
 // db.products.updateMany({ reviews: {} }, { $set: { reviews: [] } });
-// 
+// db.products.insert(
+//     {
+//                     imgSrc: "https://images.unsplash.com/photo-1507793431537-2f8f3745c5a4?q=80&w=3386&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            
+//                     id: 10,
+//                     category: "Casule",
+//                     title: "Cardigan",
+//                     price: 237,
+//                     popularity: 5,
+//                     rating: 4.5,
+//                     date: "2023-05-01",
+//                     dress_sizes: [  "L", "M", "S", "XS" ],
+//                     dress_colors: [ "teal-800", "white" ],
+//                     reviews:[]
+            
+//                 }
+// )
