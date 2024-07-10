@@ -19,7 +19,7 @@ async function fetchProducts() {
 
         const productsWithoutId = products.map((product, index) => ({
             imgSrc: product.imgSrc,
-            id: index,
+            id: product.id,
             category: product.category,
             title: product.title,
             price: product.price,
