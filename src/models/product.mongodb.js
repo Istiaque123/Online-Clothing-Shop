@@ -16,9 +16,7 @@ db.createCollection('products');
 //             date: "2023-05-01",
 //             dress_sizes: [ "XL", "L", "M", "S", "XS" ],
 //             dress_colors: [ "red-500", "green-500", "black", "yellow-500", "white" ],
-//             reviews:{
-    
-//             }
+//             reviews:[]
     
 //         },
 //         {
@@ -33,9 +31,7 @@ db.createCollection('products');
 //             date: "2023-08-01",
 //             dress_sizes: [ "L", "M", "S", "XS" ],
 //             dress_colors: [ "red-500", "green-500", "[#213380]", "white" ],
-//             reviews:{
-                
-//             }
+//             reviews:[]
 //         },
 //         {
 //             imgSrc: "https://images.unsplash.com/photo-1552874869-5c39ec9288dc?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -49,9 +45,7 @@ db.createCollection('products');
 //             date: "2024-02-04",
 //             dress_sizes: [ "XL", "L", "M", "S", "XS" ],
 //             dress_colors: [ "black", "white" ],
-//             reviews:{
-                
-//             }
+//             reviews:[]
 //         },
 //         {
 //             imgSrc: "https://images.unsplash.com/photo-1618244972963-dbee1a7edc95?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -65,9 +59,7 @@ db.createCollection('products');
 //             date: "2023-02-21",
 //             dress_sizes: [ "XL", "L", "M", "S", "XS" ],
 //             dress_colors: [ "black", "white" , "amber-800", "[#141E46]" ],
-//             reviews:{
-                
-//             }
+//             reviews:[]
 //         },
 //         {
 //             imgSrc: "https://images.unsplash.com/photo-1606902965551-dce093cda6e7?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -81,9 +73,7 @@ db.createCollection('products');
 //             date: "2024-03-15",
 //             dress_sizes: [],
 //             dress_colors: [],
-//             reviews:{
-                
-//             }
+//             reviews:[]
 //         },
 //         {
 //             imgSrc: "https://images.unsplash.com/photo-1600275669177-176b3c586d22?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -97,9 +87,7 @@ db.createCollection('products');
 //             date: "2023-12-27",
 //             dress_sizes: [],
 //             dress_colors: [],
-//             reviews:{
-                
-//             }
+//             reviews:[]
 //         },
 //         {
 //             imgSrc: "https://images.unsplash.com/photo-1672710028050-c5c683da5ca1?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -113,9 +101,7 @@ db.createCollection('products');
 //             date: "2023-09-17",
 //             dress_sizes: [],
 //             dress_colors: [],
-//             reviews:{
-                
-//             }
+//             reviews:[]
 //         },
 //         {
 //             imgSrc: "https://images.unsplash.com/photo-1621338215802-e04cfd0b298d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -129,9 +115,7 @@ db.createCollection('products');
 //             date: "2023-09-17",
 //             dress_sizes: [],
 //             dress_colors: [],
-//             reviews:{
-                
-//             }
+//             reviews:[]
 //         },
 //         {
 //             imgSrc: "https://images.unsplash.com/photo-1528228377194-2faca82540e4?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -145,9 +129,7 @@ db.createCollection('products');
 //             date: "2023-09-27",
 //             dress_sizes: [],
 //             dress_colors: [],
-//             reviews:{
-                
-//             }
+//             reviews:[]
 //         },
 //         {
 //             imgSrc: "https://plus.unsplash.com/premium_photo-1673957802750-0cc6d052c6d9?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -161,10 +143,8 @@ db.createCollection('products');
 //             date: "2023-09-27",
 //             dress_sizes: [],
 //             dress_colors: [],
-//             reviews:{
-                
-//             }
-//         }
+//             reviews:[]
+//         },
 //     ]
 // );
 

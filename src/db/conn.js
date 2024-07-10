@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const MONGODB_URI = process.env.DB_URI || "mongodb://localhost:27017/women_dress_onlineShop";
+const MONGODB_URI = process.env.DB_URI ;
 
 mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true,
