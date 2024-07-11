@@ -12,5 +12,5 @@
 [[redirects]]
   # Redirects all paths to index.html for client-side routing
   from = "/*"
-  to = "/html/index.html"
+  to = "/index.html"
   status = 200
