@@ -9,6 +9,7 @@
     "tail": "npx tailwindcss -i ./public/input.css -o ./public/output.css --watch",
     "build": "mkdir -p build && npx tailwindcss -i ./public/input.css -o ./public/output.css && cp -R ./public/* ./build/",
     "start": "node src/server.js"
+    
   },
   "keywords": [],
   "author": "",
