@@ -1,8 +1,16 @@
 [build]
+  # Specifies the build command to execute
   command = "npm run build"
+
+  # Specifies the directory where the built files are located
   publish = "public"
 
+  # Defines environment variables if necessary
+  environment = { NODE_ENV = "production" }
+
+# Optional: Redirects configuration for client-side routing
 [[redirects]]
+  # Redirects all paths to index.html for client-side routing
   from = "/*"
   to = "/index.html"
   status = 200
