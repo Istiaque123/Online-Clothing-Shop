@@ -6,10 +6,10 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "tail": "npx tailwindcss -i ./src/input.css -o ./src/output.css --watch",
-    "build": "mkdir -p public && npx tailwindcss -i ./src/input.css -o ./public/output.css && cp -R public/* build/",
+    "tail": "npx tailwindcss -i ./public/input.css -o ./public/output.css --watch",
+    "build": "mkdir -p build && npm run tail && cp -R public/* build/",
     "start": "node src/server.js"
-},
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
