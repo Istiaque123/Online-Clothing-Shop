@@ -1,6 +1,7 @@
 [build]
   command = "npm run build"
   publish = "public"
+  environment = { NODE_ENV = "production" }
 
 [[redirects]]
   from = "/*"
