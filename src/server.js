@@ -37,56 +37,56 @@ app.use('/src', express.static(path.join(__dirname, '../src')));
 
 // Define routes for serving HTML files
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public/html', 'index.html'));
+    res.sendFile(path.join(__dirname, '../public/views', 'index.html'));
 });
 app.get('/home', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public/html', 'index.html'));
+    res.sendFile(path.join(__dirname, '../public/views', 'index.html'));
 });
 
 app.get('/shop', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public/html', 'shop.html'));
+    res.sendFile(path.join(__dirname, '../public/views', 'shop.html'));
 });
 
 app.get('/aboutus', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public/html', 'about_us.html'));
+    res.sendFile(path.join(__dirname, '../public/views', 'about_us.html'));
 });
 
 app.get('/product', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public/html', 'product.html'));
+    res.sendFile(path.join(__dirname, '../public/views', 'product.html'));
 });
 
 app.get('/contactus', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public/html', 'contact_us.html'));
+    res.sendFile(path.join(__dirname, '../public/views', 'contact_us.html'));
 });
 
 app.get('/user', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public/html', 'user.html'));
+    res.sendFile(path.join(__dirname, '../public/views', 'user.html'));
 });
 app.get('/cart', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public/html', 'cart.html'));
+    res.sendFile(path.join(__dirname, '../public/views', 'cart.html'));
 });
 app.get('/logReg', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public/html', 'log_reg.html'));
+    res.sendFile(path.join(__dirname, '../public/views', 'log_reg.html'));
 });
 app.get('/myfooter', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public/html', 'footer.html'));
+    res.sendFile(path.join(__dirname, '../public/views', 'footer.html'));
 });
 app.get('/my_nev_bg', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public/html', 'nav_bg.html'));
+    res.sendFile(path.join(__dirname, '../public/views', 'nav_bg.html'));
 });
 app.get('/my_nev', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public/html', 'nav_no_bg.html'));
+    res.sendFile(path.join(__dirname, '../public/views', 'nav_no_bg.html'));
 });
 
 
 app.get('/account', (req, res) => { // Protect this route
-    res.sendFile(path.join(__dirname, '../public/html', 'userProfile.html'));
+    res.sendFile(path.join(__dirname, '../public/views', 'userProfile.html'));
 });
 app.get('/checkout', (req, res) => { // Protect this route
-    res.sendFile(path.join(__dirname, '../public/html', 'biling.html'));
+    res.sendFile(path.join(__dirname, '../public/views', 'biling.html'));
 });
 app.get('/home/admin', (req, res) => { // Protect this route
-    res.sendFile(path.join(__dirname, '../public/html', 'adminHome.html'));
+    res.sendFile(path.join(__dirname, '../public/views', 'adminHome.html'));
 });
 
 
