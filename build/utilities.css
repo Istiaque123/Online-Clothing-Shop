@@ -1,0 +1,76 @@
+.bg-img-scale{
+    background-color: aqua;
+  height: 100vh;
+  width: 100%;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  background-position: left;
+
+  background-attachment: fixed;
+
+  position: relative;
+
+  z-index: 0;
+
+}
+.bg-img-scale-two{
+    background-color: aqua;
+  height: 70vh;
+  width: 100%;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  background-position: left;
+
+  background-attachment: fixed;
+
+  position: relative;
+
+  z-index: 0;
+
+}
+.bg-img-scale-advance{
+    background-color: aqua;
+  /* height: 70vh; */
+  width: 100%;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  background-position: left;
+
+  background-attachment: fixed;
+
+  position: relative;
+
+  z-index: 0;
+  
+
+}
+
+
+/* ------------------------- */
+
+input[type=text], input[type=email], select, textarea {
+  width: 100%; /* Full width */
+  padding: 12px; /* Some padding */ 
+  border: 1px solid #ccc; /* Gray border */
+  border-radius: 4px; /* Rounded borders */
+  box-sizing: border-box; /* Make sure that padding and width stays in place */
+  margin-top: 6px; /* Add a top margin */
+  margin-bottom: 16px; /* Bottom margin */
+  resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  color: rgba(0, 0, 0, 0);
+  opacity: 1;
+  display: block;
+  background: url(https://mywildalberta.ca/images/GFX-MWA-Parks-Reservations.png) no-repeat;
+  width: 20px;
+  height: 20px;
+  border-width: thin;
+}
